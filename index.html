@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--
+ 
+      Theme: TBD
+      Author: Nic Chan [http://www.nicchan.me]
+      For: Tumblr  [http://tumblr.com/]
+      Terms: Protected under Creative Commons. [http://creativecommons.org/licenses/by-nc/3.0/]
+  
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Custom Variables -->
+    <meta name="image:Logo" content=""/>
+    <meta name="text:Headline Google Font" content="Montserrat"/>
+    <meta name="text:Body Google Font" content="Open Sans"/>
+    <meta name="color:Background Gradient Top" content="#F8EDD1"/>
+    <meta name="color:Background Gradient Middle" content="#D88A8A"/>
+    <meta name="color:Background Gradient Bottom" content="#C5CFC6"/>
+    <meta name="image:Background Image" content=""/>
+    <meta name="color:Header Text Color" content="#474843"/>
+    <meta name="if:Apply Header Background Color" content="0"/>
+    <meta name="color:Header Background Color" content="#fff"/>   
+    <meta name="color:Post Text Color" content="#474843"/>    
+    <meta name="color:Post Accent Text Color" content="#8f8f83"/>
+    <meta name="text:Post and Header Background Opacity" content="1"/>        
+    <meta name="color:Decoration Color" content="#D88A8A"/>  
+    <title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    {block:IfHeadlineGoogleFont}
+      <link href='https://fonts.googleapis.com/css?family={text:Headline Google Font}:400' rel='stylesheet' type='text/css'>
+    {/block:IfHeadlineGoogleFont}
+    {block:IfBodyGoogleFont}
+      <link href='https://fonts.googleapis.com/css?family={text:Body Google Font}:400,700' rel='stylesheet' type='text/css'>
+    {/block:IfBodyGoogleFont}
+    <meta name=viewport content='width=device-width, initial-scale=1'>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <style>
+      /* normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+      progress,sub,sup{vertical-align:baseline}button,hr,input{overflow:visible}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0} figcaption, menu,article,aside,details,figure,footer,header,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0} [hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{}button,select{text-transform:none}[type=submit], [type=reset],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}/*# sourceMappingURL=normalize.min.css.map */
+    </style>
+
+    <!-- a link to my dropbox for now while I develop, will be replaced with inline styles later */-->
+    <link href="https://www.dropbox.com/s/ur8p4lcntabiu7s/style.css?dl=1" rel="stylesheet" type="text/css">
+
+    <style>
+      /* code specifically relating to the theme options */
+      body {
+        background: -webkit-linear-gradient(top, {color:Background Gradient Top}, {color:Background Gradient Middle}, {color:Background Gradient Bottom});
+        background: linear-gradient(to bottom, {color:Background Gradient Top}, {color:Background Gradient Middle}, {color:Background Gradient Bottom});
+        color: {color:Post Text Color};
+      }
+
+      {block:IfBackgroundImageImage}
+        body {
+          background-image: url('{image:Background Image}');
+          background-size: cover;
+          background-attachment: fixed;
+          background-repeat: no-repeat;
+        }
+
+      {/block:IfBackgroundImageImage}
+
+      {block:IfBodyGoogleFont}
+        body {
+          font-family: '{text:Body Google Font}', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+      {/block:IfBodyGoogleFont}
+
+      *:focus {
+        outline-color: {color:Decoration Color};
+      }
+
+
+      {block:IfHeadlineGoogleFont}
+        h1, h2, h3, h4, h5, h6 {
+          font-family: '{text:Headline Google Font}', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+      {/block:IfHeadlineGoogleFont}
+
+      .header {
+        color: {color:Header Text Color};
+        {block:IfApplyHeaderBackgroundColor}
+        background-color: rgba({RGBcolor:Header Background Color},{text:Post and Header Background Opacity});
+        {/block:IfApplyHeaderBackgroundColor}
+      }
+
+      .header__title {
+        color: {color:Header Text Color};
+      }
+      .header__title:hover, .header__title:active, .header__title:focus {
+        color: {color:Decoration Color};
+      }
+
+
+    </style>
+
+  </head>
+<body>
+  <a class="skip-to" href="#main">Skip to Main Content</a>
+
+  <header class="header">
+    {block:IfLogoImage}
+      <a href="/">
+        <figure class="header__logo" style="background-image: url('{image:Logo}')"></figure>
+      </a>
+    {/block:IfLogoImage}
+    <h1><a href="/" class="header__title">{Title}</a></h1>
+    {block:Description}
+      <p class="header__description">{Description}</p>
+    {/block:Description}
+  </header>
+
+    <div class="content wrap">
+      <section class="posts">
+        {block:NoSearchResults}
+          <h2>Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
+        {/block:NoSearchResults}
+
+        {block:TagPage}
+          <h2 class="h1">#{Tag}</h2>
+        {/block:TagPage}
+
+        {block:Posts}
+          <article class="post {PostType}">
+            {block:Text}
+              {block:Title}
+                <a href="{Permalink}" class="post-title"><h2>{Title}</h2></a>
+              {/block:Title}
+              
+              {Body}
+              
+              {block:More}<a href="{Permalink}" class="p">Read More &raquo;</a>{/block:More}
+              
+            {/block:Text}
+
+            {block:Photo}
+              {LinkOpenTag}
+                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">           
+              {LinkCloseTag}
+
+              {block:Caption}
+                {Caption}
+              {/block:Caption}
+            {/block:Photo}
+
+            {block:Photoset}
+              {Photoset}
+
+              {block:Caption}
+                {Caption}
+              {/block:Caption}
+            {/block:Photoset}
+
+            {block:Quote}
+              <blockquote>
+                <p class="h3">&ldquo;{Quote}&rdquo;</p>
+
+                {block:Source}
+                  <p class="source">&ndash; {Source}</p>
+                {/block:Source}
+              </blockquote>
+            {/block:Quote}
+
+            {block:Link}
+              <h2><a href="{URL}"{Target}>{Name} &raquo;</a></h2>
+
+              {block:Description}
+                {Description}
+              {/block:Description}
+            {/block:Link}
+
+            {block:Chat}
+              {block:Title}
+                <h2>{Title}</h2>
+              {/block:Title}
+
+              <ul>
+                {block:Lines}
+                  <li class="{Alt}">
+                    {block:Label}
+                        <b>{Label}</b>
+                    {/block:Label}
+
+                    {Line}
+                  </li>
+                {/block:Lines}
+              </ul>
+            {/block:Chat}
+
+            {block:Audio}
+              
+              {AudioEmbed-640}
+              
+              {block:Caption}
+                {Caption}
+              {/block:Caption}
+            {/block:Audio}
+
+            {block:Video}
+              {Video-700}
+
+              {block:Caption}
+                {Caption}
+              {/block:Caption}
+            {/block:Video}
+
+            {block:Answer}
+              <h2>{Asker} asked: <q>{Question}</q></h2>
+
+              {Answer}
+            {/block:Answer}
+
+            {block:Date}
+              <footer>
+                <ul class="small">
+                  <li><a href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a></li>
+                  {block:RebloggedFrom}<li class="source"> (reblogged from <a href="{ReblogParentURL}">{ReblogParentName}</a>)</li>{/block:RebloggedFrom}
+                  {block:ContentSource}
+                    <li class="source">via <a href="{SourceURL}">{SourceTitle}</a></li>
+                  {/block:ContentSource}
+                </ul>
+                
+                {block:PermalinkPage}
+                    {block:HasTags}
+                        <ul class="tags">
+                          {block:Tags}
+                            <li>
+                              <a href="{TagURL}">#{Tag}</a>
+                            </li>
+                          {/block:Tags}
+                        </ul>
+                    {/block:HasTags}      
+                {/block:PermalinkPage}
+                              
+              </footer>
+            {/block:Date}
+          </article> <!-- /post -->      
+        
+          {block:PostNotes}
+            <aside class="notes">
+              {block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}
+              {PostNotes-64}
+            </aside>
+          {/block:PostNotes}
+
+        {/block:Posts}
+        
+        {block:Pagination}
+          <div class="pagination p">
+            <span class="previous">{block:PreviousPage}<a href="{PreviousPage}" class="previous">{/block:PreviousPage}&laquo; Previous{block:PreviousPage}</a>{/block:PreviousPage}</span>
+            <span class="page-numbers">{CurrentPage}/{TotalPages}</span>
+            <span class="next">{block:NextPage}<a href="{NextPage}">{/block:NextPage}Next &raquo;{block:NextPage}</a>{/block:NextPage}</span>
+          </div>
+        {/block:Pagination}
+              
+      </section> <!-- /posts -->
+    </div> <!-- /content -->
+  
+  <footer class="small wrap">
+    {block:HasPages}
+      <ul class="pages">
+        {block:Pages}
+          <li><a href="{URL}">{Label}</a></li>
+        {/block:Pages}
+      </ul>
+    {/block:HasPages}
+    {block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
+    {block:IfColophon}<p class="small">{text:Colophon}</p>{block:IfColophon}
+  </footer>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.header {
+  margin: 1rem auto;
+  width: 90%;
+  max-width: $max-width;
+  padding: 1rem;
+  text-align: center;
+  border-radius: $radius;
+
+  @media (min-width: $medium) {
+    margin: 2rem auto; 
+    padding: 2rem;
+  }
+
+  &__logo {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin: 0rem auto 1rem;
+    background-size: cover;
+  }
+
+  &__title {
+  	font-size: 1.3rem;
+  	transition: 0.3s all ease
+  }
+}
