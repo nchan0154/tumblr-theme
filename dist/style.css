@@ -3,7 +3,9 @@
 
 html {
   font-size: 100%;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  line-height: 1.5; }
   @media screen and (min-width: 90em) {
     html {
       font-size: 120%; } }
@@ -25,6 +27,16 @@ h3, h4, h5, h6 {
 a {
   text-decoration: none; }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
 .skip-to {
   position: absolute;
   top: 0;
@@ -39,7 +51,7 @@ a {
 .header {
   margin: 1rem auto;
   width: 90%;
-  max-width: 47.75rem;
+  max-width: 764px;
   padding: 1rem;
   text-align: center;
   border-radius: 2px; }
@@ -58,3 +70,26 @@ a {
     font-size: 1.3rem;
     -webkit-transition: 0.3s all ease;
     transition: 0.3s all ease; }
+
+.nav__list {
+  margin: 0;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+  line-height: 2;
+  font-size: 0.875rem; }
+
+.nav__list-item {
+  display: inline-block;
+  padding: 0 1rem; }
+
+.nav__link {
+  font-weight: 700;
+  border-bottom: 3px solid transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  .nav__link:hover, .nav__link:active, .nav__link:focus {
+    border-bottom: 3px solid; }
+
+.search-form {
+  margin: 1.5rem 0; }

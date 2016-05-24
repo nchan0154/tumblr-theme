@@ -23,8 +23,10 @@
     <meta name="color:Header Background Color" content="#fff"/>   
     <meta name="color:Post Text Color" content="#474843"/>    
     <meta name="color:Post Accent Text Color" content="#8f8f83"/>
+    <meta name="color:Post Background Color" content="#fff"/>  
     <meta name="text:Post and Header Background Opacity" content="1"/>        
     <meta name="color:Decoration Color" content="#D88A8A"/>  
+    <meta name="if:Enable Search" content="1"/>
     <title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
     {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
     <link rel="shortcut icon" href="{Favicon}">
@@ -36,6 +38,7 @@
     {block:IfBodyGoogleFont}
       <link href='https://fonts.googleapis.com/css?family={text:Body Google Font}:400,700' rel='stylesheet' type='text/css'>
     {/block:IfBodyGoogleFont}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <meta name=viewport content='width=device-width, initial-scale=1'>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -98,6 +101,14 @@
         color: {color:Decoration Color};
       }
 
+      .nav__link {
+        color: {color:Header Text Color};
+      }
+
+      .nav__link:hover, .nav__link:active, .nav__link:focus {
+        border-color: {color:Decoration Color};
+      }
+
 
     </style>
 
@@ -106,21 +117,54 @@
   <a class="skip-to" href="#main">Skip to Main Content</a>
 
   <header class="header">
+
     {block:IfLogoImage}
       <a href="/">
         <figure class="header__logo" style="background-image: url('{image:Logo}')"></figure>
       </a>
     {/block:IfLogoImage}
+
     <h1><a href="/" class="header__title">{Title}</a></h1>
+
     {block:Description}
       <p class="header__description">{Description}</p>
     {/block:Description}
+
+    {block:IfEnableSearch}
+    <form class="search-form" action="/search" method="get">
+        <label><span class="sr-only">Search</span>
+          <input type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
+        </label>
+        <input type="submit" value="Search"/>
+    </form>
+    {/block:IfEnableSearch}
+
+    {block:HasPages}
+      <nav>
+        <ul class="nav__list">
+
+          {block:AskEnabled}
+            <li class="nav__list-item"><a class="nav__link" href="/ask" role="menuitem">{AskLabel}</a>
+          {/block:AskEnabled}
+        
+          {block:SubmissionsEnabled}
+            <li class="nav__list-item"><a class="nav__link" href="/submit" role="menuitem">{SubmitLabel}</a>        
+          {/block:SubmissionsEnabled}
+        
+          {block:Pages}
+            <li class="nav__list-item"><a class="nav__link" href="{URL}" role="menuitem">{Label}</a></li>
+          {/block:Pages}
+        </ul>
+      </nav> 
+    {/block:HasPages}
+
   </header>
 
-    <div class="content wrap">
-      <section class="posts">
+    <main id="#main" class="content__wrapper">
         {block:NoSearchResults}
-          <h2>Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
+          <section class="content">
+            <h2>Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
+          </section>
         {/block:NoSearchResults}
 
         {block:TagPage}
@@ -259,19 +303,10 @@
             <span class="next">{block:NextPage}<a href="{NextPage}">{/block:NextPage}Next &raquo;{block:NextPage}</a>{/block:NextPage}</span>
           </div>
         {/block:Pagination}
-              
-      </section> <!-- /posts -->
-    </div> <!-- /content -->
+
+  </main> <!-- /content -->
   
   <footer class="small wrap">
-    {block:HasPages}
-      <ul class="pages">
-        {block:Pages}
-          <li><a href="{URL}">{Label}</a></li>
-        {/block:Pages}
-      </ul>
-    {/block:HasPages}
-    {block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
     {block:IfColophon}<p class="small">{text:Colophon}</p>{block:IfColophon}
   </footer>
 </body>

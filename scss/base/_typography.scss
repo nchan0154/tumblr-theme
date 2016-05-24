@@ -1,13 +1,14 @@
 .skip-to {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 0.5rem;
-	background: rgba(255,255,255, 0.8);
-	color: #333;
-	opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  background: rgba(255,255,255, 0.8);
+  color: #333;
+  opacity: 0;
 
-	&:focus {
-		opacity: 1;
-	}
+  &:focus {
+    opacity: 1;
+  }
 }
+  
