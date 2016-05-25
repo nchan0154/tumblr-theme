@@ -1,0 +1,25 @@
+.quote-post {
+  padding: 0;
+  border: none;
+
+  &__text {
+    margin-top: 0;
+    font-size: 1.125rem;
+    position: relative;
+
+    &::before {
+      content: "\201C";
+      position: absolute;
+      top: -5rem;
+      left: -2rem;
+      font-size: 10rem;
+      opacity: 0.3;
+    }
+  }
+
+  &__source {
+    float: right;
+  }
+
+  @include clearfix;
+}

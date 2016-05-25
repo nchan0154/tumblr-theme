@@ -6,7 +6,7 @@ html {
   font-size: 100%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   min-height: 100vh; 
-  line-height: 1.5;
+  line-height: 1.6;
 
   @media screen and (min-width: $xlarge){
     font-size: 120%;
@@ -16,20 +16,19 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
 h1 {
-  font-size: 1.3rem
+  font-size: 1.375rem
 }
 
 h2 {
-  font-size: 1.2rem
+  font-size: 1.25rem
 }
 
 h3, h4, h5, h6 {
-  font-size: 1.1rem
+  font-size: 1.125rem
 }
 
 
@@ -37,6 +36,18 @@ a {
   text-decoration: none
 }
 
+small {
+  font-size: 0.875rem;
+}
+
+figure {
+  margin: 1rem 0;
+}
+
+blockquote {
+  margin: 1rem;
+  padding: 0 1rem;
+}
 
 .sr-only {
   position: absolute;

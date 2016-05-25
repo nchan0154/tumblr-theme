@@ -11,4 +11,9 @@
     opacity: 1;
   }
 }
+
   
+.accent-link, .tumblr_blog {
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;  
+}

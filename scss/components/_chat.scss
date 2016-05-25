@@ -1,0 +1,13 @@
+.chat-post {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+
+  &__label {
+    margin-right: 0.5rem;
+  }
+
+  &__line {
+    padding: 0.25rem;
+  }
+}

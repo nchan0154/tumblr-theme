@@ -1,0 +1,28 @@
+.post {
+  &__title {
+    display: inline-block;
+    margin-top: 0;
+  }
+
+  &__title:last-child {
+    margin-bottom: 0;
+  }
+  img {
+    max-width: 100%;
+  }
+
+  &__body a:not(.tumblr_blog) {
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  &__photo {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .tumblr_audio_player {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}

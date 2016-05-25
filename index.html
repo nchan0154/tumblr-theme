@@ -22,11 +22,16 @@
     <meta name="if:Apply Header Background Color" content="0"/>
     <meta name="color:Header Background Color" content="#fff"/>   
     <meta name="color:Post Text Color" content="#474843"/>    
-    <meta name="color:Post Accent Text Color" content="#8f8f83"/>
+    <meta name="color:Post Accent Text Color" content="#707065"/>
     <meta name="color:Post Background Color" content="#fff"/>  
     <meta name="text:Post and Header Background Opacity" content="1"/>        
     <meta name="color:Decoration Color" content="#D88A8A"/>  
     <meta name="if:Enable Search" content="1"/>
+    <meta name="if:Enable Social Media" content="0"/>
+    <meta name="text:Facebook URL" content=""/>
+    <meta name="text:Twitter URL" content=""/>
+    <meta name="text:Instagram URL" content=""/>
+    <meta name="text:Youtube URL" content=""/>
     <title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
     {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
     <link rel="shortcut icon" href="{Favicon}">
@@ -38,18 +43,13 @@
     {block:IfBodyGoogleFont}
       <link href='https://fonts.googleapis.com/css?family={text:Body Google Font}:400,700' rel='stylesheet' type='text/css'>
     {/block:IfBodyGoogleFont}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <meta name=viewport content='width=device-width, initial-scale=1'>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    
-    <style>
-      /* normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
-      progress,sub,sup{vertical-align:baseline}button,hr,input{overflow:visible}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0} figcaption, menu,article,aside,details,figure,footer,header,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0} [hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{}button,select{text-transform:none}[type=submit], [type=reset],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}/*# sourceMappingURL=normalize.min.css.map */
-    </style>
 
-    <!-- a link to my dropbox for now while I develop, will be replaced with inline styles later */-->
+    <!-- a link to my dropbox for now while I develop, will be replaced later */-->
     <link href="https://www.dropbox.com/s/ur8p4lcntabiu7s/style.css?dl=1" rel="stylesheet" type="text/css">
 
     <style>
@@ -71,7 +71,7 @@
       {/block:IfBackgroundImageImage}
 
       {block:IfBodyGoogleFont}
-        body {
+        body, .search__input {
           font-family: '{text:Body Google Font}', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
       {/block:IfBodyGoogleFont}
@@ -79,7 +79,6 @@
       *:focus {
         outline-color: {color:Decoration Color};
       }
-
 
       {block:IfHeadlineGoogleFont}
         h1, h2, h3, h4, h5, h6 {
@@ -97,8 +96,13 @@
       .header__title {
         color: {color:Header Text Color};
       }
+      
       .header__title:hover, .header__title:active, .header__title:focus {
         color: {color:Decoration Color};
+      }
+
+      .header__logo-link:focus .header__logo {
+        box-shadow: 0 0 2px 2px {color:Decoration Color};
       }
 
       .nav__link {
@@ -109,7 +113,55 @@
         border-color: {color:Decoration Color};
       }
 
+      .search__input {
+        border: 2px solid {color:Decoration Color};
+      }
 
+      .search__input:focus {
+        box-shadow: 0 1px 10px {color:Decoration Color};
+      }
+
+      .search__button {
+        color: {color:Decoration Color};
+      }
+
+      .content {
+        background-color: rgba({RGBcolor:Post Background Color}, {text:Post and Header Background Opacity});
+      }
+
+      .accent-link, .tumblr_blog, a {
+        color: {color:Post Accent Text Color};
+      }
+
+      .accent-link:hover, .accent-link:active, .accent-link:focus,
+      .tumblr_blog:hover, .tumblr_blog:active, .tumblr_blog:focus {
+        border-bottom: 2px solid {color:Decoration Color};
+      }
+
+      blockquote {
+        border-left: 2px solid rgba({RGBcolor:Decoration Color}, 0.3);
+      }
+
+      .post__body a:not(.tumblr_blog) {
+        border-bottom: 2px solid rgba({RGBcolor:Decoration Color}, 0.3);
+        color: {color:Post Text Color};
+      }
+
+      .post__body a:not(.tumblr_blog):hover,
+      .post__body a:not(.tumblr_blog):active,
+      .post__body a:not(.tumblr_blog):focus {
+        border-bottom: 2px solid {color:Decoration Color};
+      }
+
+      .quote-post__text::before {
+        color: {color:Decoration Color};
+        font-family: '{text:Headline Google Font}', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+
+      .chat-post .odd {
+        background-color: rgba({RGBcolor:Decoration Color}, 0.2);
+      }
+    
     </style>
 
   </head>
@@ -119,7 +171,7 @@
   <header class="header">
 
     {block:IfLogoImage}
-      <a href="/">
+      <a class="header__logo-link" href="/">
         <figure class="header__logo" style="background-image: url('{image:Logo}')"></figure>
       </a>
     {/block:IfLogoImage}
@@ -131,26 +183,23 @@
     {/block:Description}
 
     {block:IfEnableSearch}
-    <form class="search-form" action="/search" method="get">
-        <label><span class="sr-only">Search</span>
-          <input type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
-        </label>
-        <input type="submit" value="Search"/>
+    <form class="search" action="/search" method="get">
+      <label><span class="sr-only">Search</span>
+        <input  class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
+      </label>
+      <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
     </form>
     {/block:IfEnableSearch}
 
     {block:HasPages}
       <nav>
         <ul class="nav__list">
-
           {block:AskEnabled}
             <li class="nav__list-item"><a class="nav__link" href="/ask" role="menuitem">{AskLabel}</a>
-          {/block:AskEnabled}
-        
+          {/block:AskEnabled}      
           {block:SubmissionsEnabled}
             <li class="nav__list-item"><a class="nav__link" href="/submit" role="menuitem">{SubmitLabel}</a>        
           {/block:SubmissionsEnabled}
-        
           {block:Pages}
             <li class="nav__list-item"><a class="nav__link" href="{URL}" role="menuitem">{Label}</a></li>
           {/block:Pages}
@@ -162,76 +211,84 @@
 
     <main id="#main" class="content__wrapper">
         {block:NoSearchResults}
-          <section class="content">
-            <h2>Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
+          <section class="content text-center">
+            <h2 class="post__title">Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
+            <form class="search" action="/search" method="get">
+              <label><span class="sr-only">Search</span>
+                <input  class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
+              </label>
+              <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
+            </form>
           </section>
         {/block:NoSearchResults}
 
         {block:TagPage}
-          <h2 class="h1">#{Tag}</h2>
+          <section class="content">
+            <h2 class="post__title">#{Tag}</h2>
+          </section>
         {/block:TagPage}
 
         {block:Posts}
-          <article class="post {PostType}">
+          <article class="content post {PostType} {TagsAsClasses}">
+            
             {block:Text}
               {block:Title}
-                <a href="{Permalink}" class="post-title"><h2>{Title}</h2></a>
+              <h2 class="post__title"><a href="{Permalink}" class="accent-link">{Title}</a></h2>
               {/block:Title}
-              
-              {Body}
-              
-              {block:More}<a href="{Permalink}" class="p">Read More &raquo;</a>{/block:More}
-              
+              <section class="post__body">
+                {Body}
+              </section>
+              {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
             {/block:Text}
 
             {block:Photo}
               {LinkOpenTag}
-                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">           
+                <img class="post__photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}">           
               {LinkCloseTag}
-
               {block:Caption}
-                {Caption}
+                <section class="post__body">
+                  {Caption}
+                </section> 
               {/block:Caption}
             {/block:Photo}
 
             {block:Photoset}
               {Photoset}
-
               {block:Caption}
-                {Caption}
+                <section class="post__body">
+                  {Caption}
+                </section>
               {/block:Caption}
             {/block:Photoset}
 
             {block:Quote}
-              <blockquote>
-                <p class="h3">&ldquo;{Quote}&rdquo;</p>
-
+              <blockquote class="quote-post post__body">
+                <p class="post__body quote-post__text">{Quote}</p>
                 {block:Source}
-                  <p class="source">&ndash; {Source}</p>
+                  <footer class="quote-post__source">&ndash; {Source}</footer>
                 {/block:Source}
               </blockquote>
             {/block:Quote}
 
             {block:Link}
-              <h2><a href="{URL}"{Target}>{Name} &raquo;</a></h2>
-
+              <h2 class="post__title"><a href="{URL}"{Target} class="accent-link">{Name} &rarr;</a></h2>
               {block:Description}
-                {Description}
+                <section class="post__body">
+                  {Description}
+                </section>
               {/block:Description}
             {/block:Link}
 
             {block:Chat}
               {block:Title}
-                <h2>{Title}</h2>
+                <h2 class="post__title">{Title}</h2>
               {/block:Title}
-
-              <ul>
+              <ul class="chat-post post__body">
                 {block:Lines}
-                  <li class="{Alt}">
+                  <li class="{Alt} chat-post__line">
                     {block:Label}
-                        <b>{Label}</b>
+                        <strong class="chat-post__label">{Label}</strong>
                     {/block:Label}
-
                     {Line}
                   </li>
                 {/block:Lines}

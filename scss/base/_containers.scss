@@ -1,0 +1,15 @@
+.content__wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: $max-width;
+}
+
+.content {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: $radius;
+
+  @media (min-width: $medium) {
+    padding: 2rem;
+  }
+}

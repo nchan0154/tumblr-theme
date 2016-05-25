@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var autoprefixer = require ('gulp-autoprefixer');
+var cssnano = require ('gulp-cssnano');
 
 var sassInput = ['scss/**/*.scss'];
 
@@ -11,6 +12,7 @@ gulp.task('sass', function () {
     .pipe(sass().on('error', swallowError))
     .pipe(autoprefixer())
     .pipe(concat('style.css'))
+    .pipe(cssnano())
     .pipe(gulp.dest('./dist/'));
 });
 

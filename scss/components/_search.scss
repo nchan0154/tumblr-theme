@@ -1,0 +1,25 @@
+.search {
+  position: relative;
+  margin: 1rem 0; 
+  display: inline-block;
+
+  &__input {
+    padding: 0.25rem 0.5rem;
+    padding-right: 2rem;
+    background: transparent;
+    border-radius: 1.25rem;
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.3rem;
+    background: none;
+    border: none;
+  }
+}

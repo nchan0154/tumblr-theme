@@ -11,6 +11,12 @@
     padding: 2rem;
   }
 
+  &__logo-link {
+    &:focus {
+      outline: none;
+    }
+  }
+
   &__logo {
     display: block;
     width: 5rem;
@@ -21,7 +27,8 @@
   }
 
   &__title {
-  	font-size: 1.3rem;
-  	transition: 0.3s all ease
+    font-size: 1.3rem;
+    transition: 0.3s all ease;
+    text-transform: uppercase;
   }
 }
