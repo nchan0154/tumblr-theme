@@ -3,8 +3,10 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var autoprefixer = require ('gulp-autoprefixer');
 var cssnano = require ('gulp-cssnano');
-
+var uglify = require('gulp-uglify');
+ 
 var sassInput = ['scss/**/*.scss'];
+var jsInput = ['js/**/*.js']
 
 gulp.task('sass', function () {
   return gulp
@@ -16,9 +18,17 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./dist/'));
 });
 
+gulp.task('js', function(){
+   return gulp
+    .src(jsInput)
+    .pipe(uglify())
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./dist/'));
+})
+
 //Watch task
 gulp.task('default',function() {
-    gulp.watch('scss/**/*.scss',['sass']);
+    gulp.watch(sassInput,['sass']);
 });
 
 function swallowError (error) {

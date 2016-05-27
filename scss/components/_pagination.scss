@@ -1,0 +1,12 @@
+.pagination {
+  text-align: center;
+  @include clearfix;
+
+  &__previous {
+    float: left;
+  }
+
+  &__next {
+    float: right;
+  }
+}

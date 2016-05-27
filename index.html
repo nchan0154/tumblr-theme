@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
  
-      Theme: TBD
+      Theme: Progressive
       Author: Nic Chan [http://www.nicchan.me]
       For: Tumblr  [http://tumblr.com/]
       Terms: Protected under Creative Commons. [http://creativecommons.org/licenses/by-nc/3.0/]
@@ -18,13 +18,13 @@
     <meta name="color:Background Gradient Middle" content="#D88A8A"/>
     <meta name="color:Background Gradient Bottom" content="#C5CFC6"/>
     <meta name="image:Background Image" content=""/>
-    <meta name="color:Header Text Color" content="#474843"/>
-    <meta name="if:Apply Header Background Color" content="0"/>
-    <meta name="color:Header Background Color" content="#fff"/>   
+    <meta name="color:Header And Footer Text Color" content="#474843"/>
+    <meta name="if:Apply Header And Footer Background Color" content="1"/>
+    <meta name="color:Header And Footer Background Color" content="#fff"/>   
     <meta name="color:Post Text Color" content="#474843"/>    
     <meta name="color:Post Accent Text Color" content="#707065"/>
     <meta name="color:Post Background Color" content="#fff"/>  
-    <meta name="text:Post and Header Background Opacity" content="1"/>        
+    <meta name="text:Content Background Opacity" content="1"/>        
     <meta name="color:Decoration Color" content="#D88A8A"/>  
     <meta name="if:Enable Search" content="1"/>
     <meta name="if:Enable Social Media" content="0"/>
@@ -32,6 +32,10 @@
     <meta name="text:Twitter URL" content=""/>
     <meta name="text:Instagram URL" content=""/>
     <meta name="text:Youtube URL" content=""/>
+    <meta name="if:Enable Footer" content="1"/>
+    <meta name="text:Footer Text" content="Progressive Tumblr Theme by Nic Chan"/>  
+    <meta name="text:Google Analytics ID" content=""/>
+    <meta name='text:Disqus Shortname' content="" />
     <title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
     {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
     <link rel="shortcut icon" href="{Favicon}">
@@ -51,7 +55,6 @@
 
     <!-- a link to my dropbox for now while I develop, will be replaced later */-->
     <link href="https://www.dropbox.com/s/ur8p4lcntabiu7s/style.css?dl=1" rel="stylesheet" type="text/css">
-
     <style>
       /* code specifically relating to the theme options */
       body {
@@ -86,15 +89,15 @@
         }
       {/block:IfHeadlineGoogleFont}
 
-      .header {
-        color: {color:Header Text Color};
-        {block:IfApplyHeaderBackgroundColor}
-        background-color: rgba({RGBcolor:Header Background Color},{text:Post and Header Background Opacity});
-        {/block:IfApplyHeaderBackgroundColor}
+      .header, .footer {
+        color: {color:Header And Footer Text Color};
+        {block:IfApplyHeaderAndFooterBackgroundColor}
+        background-color: rgba({RGBcolor:Header And Footer Background Color},{text:Content Background Opacity});
+        {/block:IfApplyHeaderAndFooterBackgroundColor}
       }
 
       .header__title {
-        color: {color:Header Text Color};
+        color: {color:Header And Footer Text Color};
       }
       
       .header__title:hover, .header__title:active, .header__title:focus {
@@ -106,7 +109,7 @@
       }
 
       .nav__link {
-        color: {color:Header Text Color};
+        color: {color:Header And Footer Text Color};
       }
 
       .nav__link:hover, .nav__link:active, .nav__link:focus {
@@ -126,7 +129,7 @@
       }
 
       .content {
-        background-color: rgba({RGBcolor:Post Background Color}, {text:Post and Header Background Opacity});
+        background-color: rgba({RGBcolor:Post Background Color}, {text:Content Background Opacity});
       }
 
       .accent-link, .tumblr_blog, a, .asker {
@@ -154,7 +157,7 @@
         border-bottom: 2px solid {color:Decoration Color};
       }
 
-      .quote-post__text::before {
+      .quote-post__text::before, .quote-post__text::after {
         color: {color:Decoration Color};
         font-family: '{text:Headline Google Font}', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
@@ -163,12 +166,24 @@
         background-color: rgba({RGBcolor:Decoration Color}, 0.2);
       }
 
-      .post__tag-link:hover, .post__tag-link:active, .post__tag-link:focus,
+      .color-link:hover, .color-link:active, .color-link:focus,
       .notes a:hover, .notes a:active, .notes a:focus {
         color: {color:Decoration Color};
       }
     
     </style>
+
+    {block:IfGoogleAnalyticsID}
+      <script>  
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '{text:Google Analytics ID}', 'auto');
+        ga('send', 'pageview');
+      </script>
+    {/block:IfGoogleAnalyticsID}
 
   </head>
 <body>
@@ -214,175 +229,230 @@
     {/block:HasPages}
 
   </header>
-
     <main id="#main" class="content__wrapper">
-        {block:NoSearchResults}
-          <section class="content text-center">
-            <h2 class="post__title">Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
-            <form class="search" action="/search" method="get">
-              <label><span class="sr-only">Search</span>
-                <input  class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
-              </label>
-              <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
-            </form>
-          </section>
-        {/block:NoSearchResults}
+      {block:NoSearchResults}
+        <section class="content text-center">
+          <h2 class="post__title">Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
+          <br>
+          <form class="search" action="/search" method="get">
+            <label><span class="sr-only">Search</span>
+              <input  class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
+            </label>
+            <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
+          </form>
+        </section>
+      {/block:NoSearchResults}
 
-        {block:TagPage}
-          <section class="content">
-            <h2 class="post__title">#{Tag}</h2>
-          </section>
-        {/block:TagPage}
+      {block:TagPage}
+        <section class="content">
+          <h2 class="post__title">#{Tag}</h2>
+        </section>
+      {/block:TagPage}
 
-        {block:DayPage}
-          <section class="content">
-            <h2 class="post__title">{Month} {DayOfMonth}, {Year}</h2>
-          </section>  
-        {/block:DayPage}
+      {block:DayPage}
+        <section class="content">
+          <h2 class="post__title">{Month} {DayOfMonth}, {Year}</h2>
+        </section>  
+      {/block:DayPage}
 
-        {block:Posts}
-          <article class="content post {PostType} {TagsAsClasses}">
-            
-            {block:Text}
-              {block:Title}
-              <h2 class="post__title"><a href="{Permalink}" class="accent-link">{Title}</a></h2>
-              {/block:Title}
+      {block:Posts}
+        <article class="content post {PostType} {TagsAsClasses}">
+          
+          {block:Text}
+            {block:Title}
+            <h2 class="post__title"><a href="{Permalink}" class="accent-link">{Title}</a></h2>
+            {/block:Title}
+            <section class="post__body">
+              {Body}
+            </section>
+            {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+          {/block:Text}
+
+          {block:Photo}
+            {LinkOpenTag}
+              <img class="post__photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}">           
+            {LinkCloseTag}
+            {block:Caption}
               <section class="post__body">
-                {Body}
-              </section>
-              {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-            {/block:Text}
+                {Caption}
+              </section> 
+            {/block:Caption}
+          {/block:Photo}
 
-            {block:Photo}
-              {LinkOpenTag}
-                <img class="post__photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}">           
-              {LinkCloseTag}
-              {block:Caption}
-                <section class="post__body">
-                  {Caption}
-                </section> 
-              {/block:Caption}
-            {/block:Photo}
-
-            {block:Photoset}
-              {Photoset}
-              {block:Caption}
-                <section class="post__body">
-                  {Caption}
-                </section>
-              {/block:Caption}
-            {/block:Photoset}
-
-            {block:Quote}
-              <blockquote class="quote-post post__body">
-                <p class="post__body quote-post__text">{Quote}</p>
-                {block:Source}
-                  <footer class="quote-post__source">&ndash; {Source}</footer>
-                {/block:Source}
-              </blockquote>
-            {/block:Quote}
-
-            {block:Link}
-              <h2 class="post__title"><a href="{URL}"{Target} class="accent-link">{Name} &rarr;</a></h2>
-              {block:Description}
-                <section class="post__body">
-                  {Description}
-                </section>
-              {/block:Description}
-            {/block:Link}
-
-            {block:Chat}
-              {block:Title}
-                <h2 class="post__title">{Title}</h2>
-              {/block:Title}
-              <ul class="chat-post post__body">
-                {block:Lines}
-                  <li class="{Alt} chat-post__line">
-                    {block:Label}
-                        <strong class="chat-post__label">{Label}</strong>
-                    {/block:Label}
-                    {Line}
-                  </li>
-                {/block:Lines}
-              </ul>
-            {/block:Chat}
-
-            {block:Audio}
-              {AudioEmbed-640}
-              {block:Caption}
-                <section class="post__body">
-                  {Caption}
-                </section>
-              {/block:Caption}
-            {/block:Audio}
-
-            {block:Video}
-              {Video-700}
+          {block:Photoset}
+            {Photoset}
+            {block:Caption}
               <section class="post__body">
-                {block:Caption}
-                  {Caption}
-                {/block:Caption}
+                {Caption}
               </section>
-            {/block:Video}
+            {/block:Caption}
+          {/block:Photoset}
 
-            {block:Answer}
-              <h2 class="post__title">{Asker} asked: {Question}</h2>
+          {block:Quote}
+            <blockquote class="quote-post post__body">
+              <p class="post__body quote-post__text">{Quote}</p>
+              {block:Source}
+                <footer class="quote-post__source">&ndash; {Source}</footer>
+              {/block:Source}
+            </blockquote>
+          {/block:Quote}
+
+          {block:Link}
+            <h2 class="post__title"><a href="{URL}"{Target} class="accent-link">{Name} &rarr;</a></h2>
+            {block:Description}
               <section class="post__body">
-                {Answer}
+                {Description}
               </section>
-            {/block:Answer}
+            {/block:Description}
+          {/block:Link}
 
-            {block:Date}
-              <footer class="post__footer">
-                  <a class="post__timestamp accent-link" href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a>
+          {block:Chat}
+            {block:Title}
+              <h2 class="post__title">{Title}</h2>
+            {/block:Title}
+            <ul class="chat-post post__body">
+              {block:Lines}
+                <li class="{Alt} chat-post__line">
+                  {block:Label}
+                      <strong class="chat-post__label">{Label}</strong>
+                  {/block:Label}
+                  {Line}
+                </li>
+              {/block:Lines}
+            </ul>
+          {/block:Chat}
 
-                  {block:NoteCount}
-                    <span class="post__notes">{NoteCountWithLabel}</span>
-                  {/block:NoteCount}
+          {block:Audio}
+            {AudioEmbed-640}
+            {block:Caption}
+              <section class="post__body">
+                {Caption}
+              </section>
+            {/block:Caption}
+          {/block:Audio}
 
-                  {block:PermalinkPage}
-                    <div class="post__source">
-                      {block:RebloggedFrom}
-                        (reblogged from <a class="accent-link" href="{ReblogParentURL}">{ReblogParentName}</a>)
-                      {/block:RebloggedFrom}
-                      {block:ContentSource}
-                        via <a class="accent-link" href="{SourceURL}">{SourceTitle}</a>
-                      {/block:ContentSource}    
-                    </div>
-                  {/block:PermalinkPage}
+          {block:Video}
+            {Video-700}
+            <section class="post__body">
+              {block:Caption}
+                {Caption}
+              {/block:Caption}
+            </section>
+          {/block:Video}
 
-                  {block:HasTags}
-                    <ul class="post__tags">
-                      {block:Tags}
-                        <li>
-                          <a class="post__tag-link" href="{TagURL}">#{Tag}</a>
-                        </li>
-                      {/block:Tags}
-                    </ul>
-                  {/block:HasTags}                          
-              </footer>
-            {/block:Date}
-          </article>    
-        
-          {block:PostNotes}
-            <aside class="content post-notes">
-              {PostNotes-64}
-            </aside>
-          {/block:PostNotes}
+          {block:Answer}
+            <h2 class="post__title">{Asker} asked: {Question}</h2>
+            <section class="post__body">
+              {Answer}
+            </section>
+          {/block:Answer}
 
-        {/block:Posts}
-        
-        {block:Pagination}
-          <div class="pagination p">
-            <span class="previous">{block:PreviousPage}<a href="{PreviousPage}" class="previous">{/block:PreviousPage}&laquo; Previous{block:PreviousPage}</a>{/block:PreviousPage}</span>
-            <span class="page-numbers">{CurrentPage}/{TotalPages}</span>
-            <span class="next">{block:NextPage}<a href="{NextPage}">{/block:NextPage}Next &raquo;{block:NextPage}</a>{/block:NextPage}</span>
-          </div>
-        {/block:Pagination}
+          {block:Date}
+            <footer class="post__footer">
+                <a class="post__timestamp accent-link" href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a>
 
-  </main> 
-  <footer class="small wrap">
-    {block:IfColophon}<p class="small">{text:Colophon}</p>{block:IfColophon}
-  </footer>
-</body>
+                {block:NoteCount}
+                  <span class="post__notes">{NoteCountWithLabel}</span>
+                {/block:NoteCount}
+
+                {block:PermalinkPage}
+                  <div class="post__source">
+                    {block:RebloggedFrom}
+                      (reblogged from <a class="accent-link" href="{ReblogParentURL}">{ReblogParentName}</a>)
+                    {/block:RebloggedFrom}
+                    {block:ContentSource}
+                      via <a class="accent-link" href="{SourceURL}">{SourceTitle}</a>
+                    {/block:ContentSource}    
+                  </div>
+                {/block:PermalinkPage}
+
+                {block:HasTags}
+                  <ul class="post__tags">
+                    {block:Tags}
+                      <li>
+                        <a class="post__tag-link color-link" href="{TagURL}">#{Tag}</a>
+                      </li>
+                    {/block:Tags}
+                  </ul>
+                {/block:HasTags}                          
+            </footer>
+          {/block:Date}
+        </article>    
+      
+        {block:PostNotes}
+          <aside class="content post-notes">
+            {PostNotes-64}
+          </aside>
+        {/block:PostNotes}
+
+        {block:PermalinkPage}
+          {block:IfDisqusShortname}
+            <section class="content">
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+                var disqus_shortname = '{text:Disqus Shortname}';
+                var disqus_url = '{Permalink}'; 
+
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+            </section>
+          {/block:IfDisqusShortname}
+        {/block:PermalinkPage}
+
+      {/block:Posts}
+      
+      {block:Pagination}
+        <div class="content pagination">
+          {block:PreviousPage}
+            <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
+          {/block:PreviousPage}
+          <span class="pagination__numbers">{CurrentPage}/{TotalPages}</span>
+          {block:NextPage}
+            <a href="{NextPage}" id="next" class="pagination__next color-link">{/block:NextPage}Next &rarr;{block:NextPage}</a>
+          {/block:NextPage}
+        </div>
+      {/block:Pagination}
+
+    </main>
+    {block:IfEnableFooter}
+      <footer class="footer">
+        {block:IfEnableSocialMedia}
+        <ul class="social">
+          {block:IfFacebookURL}
+            <li>
+              <a href="{text:Facebook URL}" class="color-link"><i class="fa fa-facebook-square" aria-hidden="true" title="Facebook Link"></i></a>
+            </li>
+          {/block:IfFacebookURL}
+          {block:IfTwitterURL}
+            <li>
+              <a href="{text:Twitter URL}" class="color-link"><i class="fa fa-twitter" aria-hidden="true" title="Twitter Link"></i></a>
+            </li>
+          {/block:IfTwitterURL}
+          {block:IfYoutubeURL}
+            <li>
+              <a href="{text:Youtube URL}" class="color-link"><i class="fa fa-youtube-play" aria-hidden="true" title="Youtube Link"></i></a>
+            </li>
+          {/block:IfYoutubeURL}
+          {block:IfInstagramURL}
+            <li>
+              <a href="{text:Instagram URL}" class="color-link"><i class="fa fa-instagram" aria-hidden="true" title="Instagram Link"></i></a>
+            </li>
+          {/block:IfInstagramURL}                
+        </ul>
+        {/block:IfEnableSocialMedia}
+        {block:IfFooterText}
+        <p class="footer__text">
+          {text:Footer Text}
+        </p>
+        {/block:IfFooterText}
+      </footer>
+    {/block:IfEnableFooter}
+    <script src="https://www.dropbox.com/s/wvloqh852bmdbbc/app.js?dl=1"></script>
+  </body>
 </html>

@@ -1,0 +1,1 @@
+document.getElementsByTagName("body")[0].addEventListener("keypress",function(e){var t=e.keyCode||e.which,n=!1,o=document.getElementById("previous"),d=document.getElementById("next");"INPUT"!==e.target.tagName.toUpperCase()&&(106==t&&null!==o?n=o.getAttribute("href"):107==t&&null!==d&&(n=d.getAttribute("href")),n&&(window.location=n))});

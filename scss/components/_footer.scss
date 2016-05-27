@@ -1,0 +1,12 @@
+.footer {
+  @extend .header;
+  margin-bottom: 2rem;
+
+  &__text {
+    margin: 0;
+  }
+
+  &__text:not(:first-child){
+    margin-top: 1rem;
+  }
+}

@@ -11,10 +11,24 @@
       content: "\201C";
       position: absolute;
       top: -5rem;
-      left: -2rem;
+      left: -1rem;
       font-size: 10rem;
       opacity: 0.3;
+      @media (min-width: $medium){
+        left: -2rem;
+      }
     }
+
+    &::after {
+      content: "\201D";
+      position: absolute;
+      height: 3rem;
+      bottom: 4rem;
+      right: -0.5rem;
+      font-size: 10rem;
+      opacity: 0.3;
+
+    } 
   }
 
   &__source {

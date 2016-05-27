@@ -13,6 +13,10 @@
   padding: 1rem;
   border-radius: $radius;
 
+  &:empty {
+    padding: 0;
+  }
+
   @media (min-width: $medium) {
     padding: 2rem;
   }
