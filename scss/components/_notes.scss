@@ -1,0 +1,24 @@
+.notes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .avatar {
+    vertical-align: middle;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  blockquote {
+    margin-left: 3rem;
+  }
+
+  a {
+    transition: all 0.3s ease;
+  }
+
+  .more_notes_link_container {
+    margin-top: 1rem;
+  }
+}

@@ -71,7 +71,7 @@
       {/block:IfBackgroundImageImage}
 
       {block:IfBodyGoogleFont}
-        body, .search__input {
+        body, .post__body h1, .post__body h2, .post__body h3, .post__body h4, .post__body h5, .post__body h6  {
           font-family: '{text:Body Google Font}', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
       {/block:IfBodyGoogleFont}
@@ -129,12 +129,13 @@
         background-color: rgba({RGBcolor:Post Background Color}, {text:Post and Header Background Opacity});
       }
 
-      .accent-link, .tumblr_blog, a {
+      .accent-link, .tumblr_blog, a, .asker {
         color: {color:Post Accent Text Color};
       }
 
       .accent-link:hover, .accent-link:active, .accent-link:focus,
-      .tumblr_blog:hover, .tumblr_blog:active, .tumblr_blog:focus {
+      .tumblr_blog:hover, .tumblr_blog:active, .tumblr_blog:focus,
+      .asker:hover, .asker:active, .asker:focus {
         border-bottom: 2px solid {color:Decoration Color};
       }
 
@@ -160,6 +161,11 @@
 
       .chat-post .odd {
         background-color: rgba({RGBcolor:Decoration Color}, 0.2);
+      }
+
+      .post__tag-link:hover, .post__tag-link:active, .post__tag-link:focus,
+      .notes a:hover, .notes a:active, .notes a:focus {
+        color: {color:Decoration Color};
       }
     
     </style>
@@ -227,6 +233,12 @@
             <h2 class="post__title">#{Tag}</h2>
           </section>
         {/block:TagPage}
+
+        {block:DayPage}
+          <section class="content">
+            <h2 class="post__title">{Month} {DayOfMonth}, {Year}</h2>
+          </section>  
+        {/block:DayPage}
 
         {block:Posts}
           <article class="content post {PostType} {TagsAsClasses}">
@@ -296,57 +308,64 @@
             {/block:Chat}
 
             {block:Audio}
-              
               {AudioEmbed-640}
-              
               {block:Caption}
-                {Caption}
+                <section class="post__body">
+                  {Caption}
+                </section>
               {/block:Caption}
             {/block:Audio}
 
             {block:Video}
               {Video-700}
-
-              {block:Caption}
-                {Caption}
-              {/block:Caption}
+              <section class="post__body">
+                {block:Caption}
+                  {Caption}
+                {/block:Caption}
+              </section>
             {/block:Video}
 
             {block:Answer}
-              <h2>{Asker} asked: <q>{Question}</q></h2>
-
-              {Answer}
+              <h2 class="post__title">{Asker} asked: {Question}</h2>
+              <section class="post__body">
+                {Answer}
+              </section>
             {/block:Answer}
 
             {block:Date}
-              <footer>
-                <ul class="small">
-                  <li><a href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a></li>
-                  {block:RebloggedFrom}<li class="source"> (reblogged from <a href="{ReblogParentURL}">{ReblogParentName}</a>)</li>{/block:RebloggedFrom}
-                  {block:ContentSource}
-                    <li class="source">via <a href="{SourceURL}">{SourceTitle}</a></li>
-                  {/block:ContentSource}
-                </ul>
-                
-                {block:PermalinkPage}
-                    {block:HasTags}
-                        <ul class="tags">
-                          {block:Tags}
-                            <li>
-                              <a href="{TagURL}">#{Tag}</a>
-                            </li>
-                          {/block:Tags}
-                        </ul>
-                    {/block:HasTags}      
-                {/block:PermalinkPage}
-                              
+              <footer class="post__footer">
+                  <a class="post__timestamp accent-link" href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a>
+
+                  {block:NoteCount}
+                    <span class="post__notes">{NoteCountWithLabel}</span>
+                  {/block:NoteCount}
+
+                  {block:PermalinkPage}
+                    <div class="post__source">
+                      {block:RebloggedFrom}
+                        (reblogged from <a class="accent-link" href="{ReblogParentURL}">{ReblogParentName}</a>)
+                      {/block:RebloggedFrom}
+                      {block:ContentSource}
+                        via <a class="accent-link" href="{SourceURL}">{SourceTitle}</a>
+                      {/block:ContentSource}    
+                    </div>
+                  {/block:PermalinkPage}
+
+                  {block:HasTags}
+                    <ul class="post__tags">
+                      {block:Tags}
+                        <li>
+                          <a class="post__tag-link" href="{TagURL}">#{Tag}</a>
+                        </li>
+                      {/block:Tags}
+                    </ul>
+                  {/block:HasTags}                          
               </footer>
             {/block:Date}
-          </article> <!-- /post -->      
+          </article>    
         
           {block:PostNotes}
-            <aside class="notes">
-              {block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}
+            <aside class="content post-notes">
               {PostNotes-64}
             </aside>
           {/block:PostNotes}
@@ -361,8 +380,7 @@
           </div>
         {/block:Pagination}
 
-  </main> <!-- /content -->
-  
+  </main> 
   <footer class="small wrap">
     {block:IfColophon}<p class="small">{text:Colophon}</p>{block:IfColophon}
   </footer>

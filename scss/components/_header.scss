@@ -7,7 +7,7 @@
   border-radius: $radius;
 
   @media (min-width: $medium) {
-    margin: 2rem auto; 
+    margin: 2rem auto 1rem; 
     padding: 2rem;
   }
 
@@ -28,6 +28,7 @@
 
   &__title {
     font-size: 1.3rem;
+    letter-spacing: 0.1rem;
     transition: 0.3s all ease;
     text-transform: uppercase;
   }

@@ -2,13 +2,20 @@
   &__title {
     display: inline-block;
     margin-top: 0;
+    margin-bottom: 0.5rem;
   }
 
   &__title:last-child {
     margin-bottom: 0;
   }
+
+  .post__body:first-child > *:first-child {
+    margin-top: 0;
+  }
+
   img {
     max-width: 100%;
+    height: auto;
   }
 
   &__body a:not(.tumblr_blog) {
@@ -21,8 +28,32 @@
     margin: 0 auto;
   }
 
-  .tumblr_audio_player {
+  .tumblr_audio_player, iframe {
     min-width: 100%;
     max-width: 100%;
+  }
+
+  &__footer {
+    margin-top: 2rem;
+    @include clearfix;
+  }
+
+  &__notes {
+    float: right;
+  }
+
+  &__tags {
+    margin: 1rem 0 0;
+    padding: 0;
+    font-size: 0.875rem;
+
+    li {
+      display: inline;
+      padding: 0 0.25rem;
+    }
+  }
+
+  &__tag-link {
+    transition: all 0.3s ease;
   }
 }

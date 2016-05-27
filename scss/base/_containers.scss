@@ -2,10 +2,14 @@
   width: 90%;
   margin: 0 auto;
   max-width: $max-width;
+
+  & .content:last-child {
+    margin-bottom: 2rem;
+  }
 }
 
 .content {
-  margin-top: 1rem;
+  margin: 1rem auto;
   padding: 1rem;
   border-radius: $radius;
 
