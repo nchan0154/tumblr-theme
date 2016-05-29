@@ -18,6 +18,10 @@
     height: auto;
   }
 
+  &__body {
+    word-wrap: break-word;
+  }
+
   &__body a:not(.tumblr_blog) {
     font-weight: 700;
     transition: all 0.3s ease;

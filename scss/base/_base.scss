@@ -46,7 +46,12 @@ figure {
 
 blockquote {
   margin: 0.5rem;
-  padding: 0 1rem;
+  padding: 0 0 0 1rem;
+}
+
+hr {
+  border: none;
+  opacity: 0.5;
 }
 
 .sr-only {
