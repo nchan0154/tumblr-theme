@@ -197,7 +197,7 @@
 
   </head>
 <body>
-  <a class="skip-to" href="#main">Skip to Main Content</a>
+  <a class="skip-to" href="main">Skip to Main Content</a>
 
   <header class="header">
 
@@ -239,214 +239,214 @@
     {/block:HasPages}
 
   </header>
-    <main id="#main" class="content__wrapper">
-      {block:NoSearchResults}
-        <section class="content text-center">
-          <h2 class="post__title">Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
-          <br>
-          <form class="search" action="/search" method="get">
-            <label><span class="sr-only">Search</span>
-              <input  class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
-            </label>
-            <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
-          </form>
-        </section>
-      {/block:NoSearchResults}
+  <main id="main" class="content__wrapper">
+    {block:NoSearchResults}
+      <section class="content text-center">
+        <h2 class="post__title">Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
+        <br>
+        <form class="search" action="/search" method="get">
+          <label><span class="sr-only">Search</span>
+            <input  class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
+          </label>
+          <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
+        </form>
+      </section>
+    {/block:NoSearchResults}
 
-      {block:TagPage}
-        <section class="content">
-          <h2 class="post__title">#{Tag}</h2>
-        </section>
-      {/block:TagPage}
+    {block:TagPage}
+      <section class="content">
+        <h2 class="post__title">#{Tag}</h2>
+      </section>
+    {/block:TagPage}
 
-      {block:DayPage}
-        <section class="content">
-          <h2 class="post__title">{Month} {DayOfMonth}, {Year}</h2>
-        </section>  
-      {/block:DayPage}
+    {block:DayPage}
+      <section class="content">
+        <h2 class="post__title">{Month} {DayOfMonth}, {Year}</h2>
+      </section>  
+    {/block:DayPage}
 
-      {block:Posts}
-        <article class="content post {PostType} {TagsAsClasses}">
-          
-          {block:Text}
-            {block:Title}
-            <h2 class="post__title"><a href="{Permalink}" class="accent-link">{Title}</a></h2>
-            {/block:Title}
+    {block:Posts}
+      <article class="content post {PostType} {TagsAsClasses}">
+        
+        {block:Text}
+          {block:Title}
+          <h2 class="post__title"><a href="{Permalink}" class="accent-link">{Title}</a></h2>
+          {/block:Title}
+          <section class="post__body">
+            {Body}
+          </section>
+          {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+        {/block:Text}
+
+        {block:Photo}
+          {LinkOpenTag}
+            <img class="post__photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}">           
+          {LinkCloseTag}
+          {block:Caption}
             <section class="post__body">
-              {Body}
-            </section>
-            {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-          {/block:Text}
+              {Caption}
+            </section> 
+          {/block:Caption}
+        {/block:Photo}
 
-          {block:Photo}
-            {LinkOpenTag}
-              <img class="post__photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}">           
-            {LinkCloseTag}
-            {block:Caption}
-              <section class="post__body">
-                {Caption}
-              </section> 
-            {/block:Caption}
-          {/block:Photo}
-
-          {block:Photoset}
-            {Photoset}
-            {block:Caption}
-              <section class="post__body">
-                {Caption}
-              </section>
-            {/block:Caption}
-          {/block:Photoset}
-
-          {block:Quote}
-            <blockquote class="quote-post post__body">
-              <p class="post__body quote-post__text">{Quote}</p>
-              {block:Source}
-                <footer class="quote-post__source">&ndash; {Source}</footer>
-              {/block:Source}
-            </blockquote>
-          {/block:Quote}
-
-          {block:Link}
-            <h2 class="post__title"><a href="{URL}"{Target} class="accent-link">{Name} &rarr;</a></h2>
-            {block:Description}
-              <section class="post__body">
-                {Description}
-              </section>
-            {/block:Description}
-          {/block:Link}
-
-          {block:Chat}
-            {block:Title}
-              <h2 class="post__title">{Title}</h2>
-            {/block:Title}
-            <ul class="chat-post post__body">
-              {block:Lines}
-                <li class="{Alt} chat-post__line">
-                  {block:Label}
-                      <strong class="chat-post__label">{Label}</strong>
-                  {/block:Label}
-                  {Line}
-                </li>
-              {/block:Lines}
-            </ul>
-          {/block:Chat}
-
-          {block:Audio}
-            {AudioEmbed-640}
-            {block:Caption}
-              <section class="post__body">
-                {Caption}
-              </section>
-            {/block:Caption}
-          {/block:Audio}
-
-          {block:Video}
-            {Video-700}
+        {block:Photoset}
+          {Photoset}
+          {block:Caption}
             <section class="post__body">
-              {block:Caption}
-                {Caption}
-              {/block:Caption}
+              {Caption}
             </section>
-          {/block:Video}
+          {/block:Caption}
+        {/block:Photoset}
 
-          {block:Answer}
-            <h2 class="post__title">{Asker} asked: {Question}</h2>
+        {block:Quote}
+          <blockquote class="quote-post post__body">
+            <p class="post__body quote-post__text">{Quote}</p>
+            {block:Source}
+              <footer class="quote-post__source">&ndash; {Source}</footer>
+            {/block:Source}
+          </blockquote>
+        {/block:Quote}
+
+        {block:Link}
+          <h2 class="post__title"><a href="{URL}"{Target} class="accent-link">{Name} &rarr;</a></h2>
+          {block:Description}
             <section class="post__body">
-              {Answer}
+              {Description}
             </section>
-          {/block:Answer}
+          {/block:Description}
+        {/block:Link}
 
-          {block:Date}
-            <footer class="post__footer">
-                <a class="post__timestamp accent-link" href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a>
+        {block:Chat}
+          {block:Title}
+            <h2 class="post__title">{Title}</h2>
+          {/block:Title}
+          <ul class="chat-post post__body">
+            {block:Lines}
+              <li class="{Alt} chat-post__line">
+                {block:Label}
+                    <strong class="chat-post__label">{Label}</strong>
+                {/block:Label}
+                {Line}
+              </li>
+            {/block:Lines}
+          </ul>
+        {/block:Chat}
 
-                {block:NoteCount}
-                  <span class="post__notes">{NoteCountWithLabel}</span>
-                {/block:NoteCount}
-
-                {block:Submission}
-                  <div class="post__submission">
-                    Submitted by <a href="{SubmitterURL}" class="color-link">{Submitter}</a>
-                  </div>
-                {/block:Submission}
-
-                {block:PermalinkPage}
-                  <div class="post__source">
-                    {block:RebloggedFrom}
-                      (reblogged from <a class="accent-link" href="{ReblogParentURL}">{ReblogParentName}</a>)
-                    {/block:RebloggedFrom}
-                    {block:ContentSource}
-                      via <a class="accent-link" href="{SourceURL}">{SourceTitle}</a>
-                    {/block:ContentSource}    
-                  </div>
-                {/block:PermalinkPage}
-
-                {block:HasTags}
-                  <ul class="post__tags">
-                    {block:Tags}
-                      <li>
-                        <a class="post__tag-link color-link" href="{TagURL}">#{Tag}</a>
-                      </li>
-                    {/block:Tags}
-                  </ul>
-                {/block:HasTags}                          
-            </footer>
-          {/block:Date}
-        </article>    
-      
-        {block:PostNotes}
-          <aside class="content post-notes">
-            {PostNotes-64}
-          </aside>
-        {/block:PostNotes}
-
-        {block:PermalinkPage}
-          {block:IfDisqusShortname}
-            <section class="content">
-              <div id="disqus_thread"></div>
-              <script type="text/javascript">
-                var disqus_shortname = '{text:Disqus Shortname}';
-                var disqus_url = '{Permalink}'; 
-
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-              </script>
-              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        {block:Audio}
+          {AudioEmbed-640}
+          {block:Caption}
+            <section class="post__body">
+              {Caption}
             </section>
-          {/block:IfDisqusShortname}
-        {/block:PermalinkPage}
+          {/block:Caption}
+        {/block:Audio}
 
-      {/block:Posts}
-      
-      {block:Pagination}
-        <div class="content pagination">
-          {block:PreviousPage}
-            <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
-          {/block:PreviousPage}
-          <span class="pagination__numbers">{CurrentPage}/{TotalPages}</span>
-          {block:NextPage}
-            <a href="{NextPage}" id="next" class="pagination__next color-link">Next &rarr;</a>
-          {/block:NextPage}
-        </div>
-      {/block:Pagination}
+        {block:Video}
+          {Video-700}
+          <section class="post__body">
+            {block:Caption}
+              {Caption}
+            {/block:Caption}
+          </section>
+        {/block:Video}
 
-      {block:DayPagination}
-        <div class="content pagination">
-          {block:PreviousDayPage}
-            <a href="{PreviousDayPage}" id="previous" class="pagination__previous color-link">&larr; {ShortMonth} {DayOfMonth}</a>
-          {/block:PreviousDayPage}
-          {block:NextDayPage}
-            <a href="{NextDayPage}" id="next" class="pagination__next color-link">{ShortMonth} {DayOfMonth} &rarr;</a>
-          {/block:NextDayPage}
-        </div>
-      {/block:DayPagination}
+        {block:Answer}
+          <h2 class="post__title">{Asker} asked: {Question}</h2>
+          <section class="post__body">
+            {Answer}
+          </section>
+        {/block:Answer}
 
-    </main>
+        {block:Date}
+          <footer class="post__footer">
+              <a class="post__timestamp accent-link" href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a>
+
+              {block:NoteCount}
+                <span class="post__notes">{NoteCountWithLabel}</span>
+              {/block:NoteCount}
+
+              {block:Submission}
+                <div class="post__submission">
+                  Submitted by <a href="{SubmitterURL}" class="color-link">{Submitter}</a>
+                </div>
+              {/block:Submission}
+
+              {block:PermalinkPage}
+                <div class="post__source">
+                  {block:RebloggedFrom}
+                    (reblogged from <a class="accent-link" href="{ReblogParentURL}">{ReblogParentName}</a>)
+                  {/block:RebloggedFrom}
+                  {block:ContentSource}
+                    via <a class="accent-link" href="{SourceURL}">{SourceTitle}</a>
+                  {/block:ContentSource}    
+                </div>
+              {/block:PermalinkPage}
+
+              {block:HasTags}
+                <ul class="post__tags">
+                  {block:Tags}
+                    <li>
+                      <a class="post__tag-link color-link" href="{TagURL}">#{Tag}</a>
+                    </li>
+                  {/block:Tags}
+                </ul>
+              {/block:HasTags}                          
+          </footer>
+        {/block:Date}
+      </article>    
+    
+      {block:PostNotes}
+        <aside class="content post-notes">
+          {PostNotes-64}
+        </aside>
+      {/block:PostNotes}
+
+      {block:PermalinkPage}
+        {block:IfDisqusShortname}
+          <section class="content">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_shortname = '{text:Disqus Shortname}';
+              var disqus_url = '{Permalink}'; 
+
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+          </section>
+        {/block:IfDisqusShortname}
+      {/block:PermalinkPage}
+
+    {/block:Posts}
+    
+    {block:Pagination}
+      <div class="content pagination">
+        {block:PreviousPage}
+          <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
+        {/block:PreviousPage}
+        <span class="pagination__numbers">{CurrentPage}/{TotalPages}</span>
+        {block:NextPage}
+          <a href="{NextPage}" id="next" class="pagination__next color-link">Next &rarr;</a>
+        {/block:NextPage}
+      </div>
+    {/block:Pagination}
+
+    {block:DayPagination}
+      <div class="content pagination">
+        {block:PreviousDayPage}
+          <a href="{PreviousDayPage}" id="previous" class="pagination__previous color-link">&larr; {ShortMonth} {DayOfMonth}</a>
+        {/block:PreviousDayPage}
+        {block:NextDayPage}
+          <a href="{NextDayPage}" id="next" class="pagination__next color-link">{ShortMonth} {DayOfMonth} &rarr;</a>
+        {/block:NextDayPage}
+      </div>
+    {/block:DayPagination}
+
+  </main>
     {block:IfEnableFooter}
       <footer class="footer">
         {block:IfEnableSocialMedia}
