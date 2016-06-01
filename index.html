@@ -27,6 +27,7 @@
     <meta name="text:Content Background Opacity" content="1"/>        
     <meta name="color:Decoration Color" content="#D88A8A"/>  
     <meta name="if:Enable Search" content="1"/>
+    <meta name="if:Set Search To Search Tags" content="0"/>
     <meta name="if:Enable Social Media" content="0.5"/>
     <meta name="text:Facebook URL" content=""/>
     <meta name="text:Twitter URL" content=""/>
@@ -197,7 +198,7 @@
 
   </head>
 <body>
-  <a class="skip-to" href="main">Skip to Main Content</a>
+  <a class="skip-to" href="#main">Skip to Main Content</a>
 
   <header class="header">
 
@@ -214,7 +215,7 @@
     {/block:Description}
 
     {block:IfEnableSearch}
-    <form class="search" action="/search" method="get">
+    <form id="search-form" class="search" action="/search" method="get">
       <label><span class="sr-only">Search</span>
         <input  class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
       </label>
@@ -481,5 +482,14 @@
       </footer>
     {/block:IfEnableFooter}
     <script src="http://static.tumblr.com/bbx9bus/fClo7vbgp/app.js"></script>
+    {block:IfSetSearchToSearchTags}
+      <script>
+        var searchForm = document.getElementById('search-form');
+        searchForm.onsubmit = function(event){
+          event.preventDefault();
+          window.location = "/tagged/" + searchForm.querySelector('.search__input').value;
+        }
+      </script>
+    {/block:IfSetSearchToSearchTags}
   </body>
 </html>
