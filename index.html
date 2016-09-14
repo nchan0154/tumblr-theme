@@ -223,22 +223,22 @@
     </form>
     {/block:IfEnableSearch}
 
-    {block:HasPages}
-      <nav>
-        <ul class="nav__list">
-          {block:AskEnabled}
-            <li class="nav__list-item"><a class="nav__link" href="/ask" role="menuitem">{AskLabel}</a>
-          {/block:AskEnabled}      
-          {block:SubmissionsEnabled}
-            <li class="nav__list-item"><a class="nav__link" href="/submit" role="menuitem">{SubmitLabel}</a>        
-          {/block:SubmissionsEnabled}
+    <nav>
+      <ul class="nav__list">
+        {block:AskEnabled}
+          <li class="nav__list-item"><a class="nav__link" href="/ask" role="menuitem">{AskLabel}</a>
+        {/block:AskEnabled}      
+        {block:SubmissionsEnabled}
+          <li class="nav__list-item"><a class="nav__link" href="/submit" role="menuitem">{SubmitLabel}</a>        
+        {/block:SubmissionsEnabled}
+        {block:HasPages}
           {block:Pages}
             <li class="nav__list-item"><a class="nav__link" href="{URL}" role="menuitem">{Label}</a></li>
           {/block:Pages}
-        </ul>
-      </nav> 
-    {/block:HasPages}
-
+        {/block:HasPages}
+      </ul>
+    </nav> 
+    
   </header>
   <main id="main" class="content__wrapper">
     {block:NoSearchResults}
@@ -287,6 +287,7 @@
             <section class="post__body">
               {Caption}
             </section> 
+            {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
           {/block:Caption}
         {/block:Photo}
 
@@ -296,16 +297,18 @@
             <section class="post__body">
               {Caption}
             </section>
+            {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
           {/block:Caption}
         {/block:Photoset}
 
         {block:Quote}
           <blockquote class="quote-post post__body">
-            <p class="post__body quote-post__text">{Quote}</p>
+            <div class="post__body quote-post__text">{Quote}</div>
             {block:Source}
               <footer class="quote-post__source">&ndash; {Source}</footer>
             {/block:Source}
           </blockquote>
+          {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
         {/block:Quote}
 
         {block:Link}
@@ -314,6 +317,7 @@
             <section class="post__body">
               {Description}
             </section>
+            {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
           {/block:Description}
         {/block:Link}
 
@@ -339,6 +343,7 @@
             <section class="post__body">
               {Caption}
             </section>
+            {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
           {/block:Caption}
         {/block:Audio}
 
@@ -349,6 +354,7 @@
               {Caption}
             {/block:Caption}
           </section>
+          {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
         {/block:Video}
 
         {block:Answer}
@@ -356,6 +362,7 @@
           <section class="post__body">
             {Answer}
           </section>
+          {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
         {/block:Answer}
 
         {block:Date}
