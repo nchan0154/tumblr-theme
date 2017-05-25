@@ -11,6 +11,10 @@
     padding: 2rem;
   }
 
+  & > *:first-child {
+    margin-top: 0;
+  }
+
   &__logo-link {
     &:focus {
       outline: none;
@@ -27,6 +31,7 @@
   }
 
   &__title {
+    margin-bottom: 1rem;
     font-size: 1.3rem;
     letter-spacing: 0.1rem;
     transition: 0.3s all ease;
