@@ -9,11 +9,8 @@
     background: transparent;
     border-radius: 1.25rem;
     font-size: 1rem;
-    width: 15rem;
-    @media (max-width: $small) {
-      width: 100%;
-    }
-
+    width: 100%;
+    max-width: 15rem;
 
     &:focus {
       outline: none;

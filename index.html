@@ -18,6 +18,7 @@
     <meta name="color:Background Gradient Middle" content="#fafafa"/>
     <meta name="color:Background Gradient Bottom" content="#eeeeee"/>
     <meta name="image:Background Image" content=""/>
+    <meta name="if:Change Header To Fixed Sidebar" content="" />
     <meta name="color:Header And Footer Text Color" content="##444444"/>
     <meta name="if:Apply Header And Footer Background Color" content="1"/>
     <meta name="color:Header And Footer Background Color" content="#fff"/>   
@@ -200,7 +201,7 @@
 <body>
   <a class="skip-to" href="#main">Skip to Main Content</a>
 
-  <header class="header">
+  <header class="header {block:IfChangeHeaderToFixedSidebar}header--fixed{/block:IfChangeHeaderToFixedSidebar}">
 
     {block:IfLogoImage}
       <a class="header__logo-link" href="/">
@@ -239,7 +240,20 @@
       </ul>
     </nav> 
     
+    {block:IfChangeHeaderToFixedSidebar}
+    <div class="pagination">
+      {block:PreviousPage}
+        <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
+      {/block:PreviousPage}
+      <span class="pagination__numbers">{CurrentPage}/{TotalPages}</span>
+      {block:NextPage}
+        <a href="{NextPage}" id="next" class="pagination__next color-link">Next &rarr;</a>
+      {/block:NextPage}
+    </div>
+    {/block:IfChangeHeaderToFixedSidebar}
+
   </header>
+  
   <main id="main" class="content__wrapper">
     {block:NoSearchResults}
       <section class="content text-center">
@@ -367,38 +381,38 @@
 
         {block:Date}
           <footer class="post__footer">
-              <a class="post__timestamp accent-link" href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a>
+            <a class="post__timestamp accent-link" href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a>
 
-              {block:NoteCount}
-                <span class="post__notes">{NoteCountWithLabel}</span>
-              {/block:NoteCount}
+            {block:NoteCount}
+              <a class="post__notes accent-link" href="{Permalink}">{NoteCountWithLabel}</a>
+            {/block:NoteCount}
 
-              {block:Submission}
-                <div class="post__submission">
-                  Submitted by <a href="{SubmitterURL}" class="color-link">{Submitter}</a>
-                </div>
-              {/block:Submission}
+            {block:Submission}
+              <div class="post__submission">
+                Submitted by <a href="{SubmitterURL}" class="color-link">{Submitter}</a>
+              </div>
+            {/block:Submission}
 
-              {block:PermalinkPage}
-                <div class="post__source">
-                  {block:RebloggedFrom}
-                    (reblogged from <a class="accent-link" href="{ReblogParentURL}">{ReblogParentName}</a>)
-                  {/block:RebloggedFrom}
-                  {block:ContentSource}
-                    via <a class="accent-link" href="{SourceURL}">{SourceTitle}</a>
-                  {/block:ContentSource}    
-                </div>
-              {/block:PermalinkPage}
+            {block:PermalinkPage}
+              <div class="post__source">
+                {block:RebloggedFrom}
+                  (reblogged from <a class="accent-link" href="{ReblogParentURL}">{ReblogParentName}</a>)
+                {/block:RebloggedFrom}
+                {block:ContentSource}
+                  via <a class="accent-link" href="{SourceURL}">{SourceTitle}</a>
+                {/block:ContentSource}    
+              </div>
+            {/block:PermalinkPage}
 
-              {block:HasTags}
-                <ul class="post__tags">
-                  {block:Tags}
-                    <li>
-                      <a class="post__tag-link color-link" href="{TagURL}">#{Tag}</a>
-                    </li>
-                  {/block:Tags}
-                </ul>
-              {/block:HasTags}                          
+            {block:HasTags}
+              <ul class="post__tags">
+                {block:Tags}
+                  <li>
+                    <a class="post__tag-link color-link" href="{TagURL}">#{Tag}</a>
+                  </li>
+                {/block:Tags}
+              </ul>
+            {/block:HasTags}                          
           </footer>
         {/block:Date}
       </article>    

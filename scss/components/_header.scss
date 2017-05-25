@@ -32,4 +32,26 @@
     transition: 0.3s all ease;
     text-transform: uppercase;
   }
+
+  .pagination {
+    display: none;
+  }
+
+  @media (min-width: 80em) {
+    &--fixed {
+      position: fixed;
+      margin: 0;
+      width: calc((100% -  746px) / 2 - 2rem);
+
+      .nav__list-item {
+        display: block;
+      }
+
+      .pagination {
+        display: block;
+        margin-top: 2rem;
+      }
+
+    }
+  }
 }
