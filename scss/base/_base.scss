@@ -8,10 +8,6 @@ html {
   min-height: 100vh; 
   line-height: 1.6;
   overflow-x: hidden;
-
-  @media screen and (min-width: $xlarge){
-    font-size: 120%;
-  } 
 }
 
 
@@ -46,8 +42,8 @@ figure {
 }
 
 blockquote {
-  margin: 0.5rem;
-  padding: 0 0 0 1rem;
+  margin: 0;
+  padding: 0 0 0 0.75rem;
 }
 
 hr {
