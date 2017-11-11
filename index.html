@@ -29,7 +29,7 @@
     <meta name="color:Decoration Color" content="#D88A8A"/>  
     <meta name="if:Enable Search" content="1"/>
     <meta name="if:Set Search To Search Tags" content="0"/>
-    <meta name="if:Enable Social Media" content="0.5"/>
+    <meta name="if:Enable Social Media" content="0"/>
     <meta name="text:Facebook URL" content=""/>
     <meta name="text:Twitter URL" content=""/>
     <meta name="text:Instagram URL" content=""/>
@@ -38,6 +38,12 @@
     <meta name="text:Footer Text" content="Progressive Tumblr Theme by Nic Chan"/>  
     <meta name="text:Google Analytics ID" content=""/>
     <meta name='text:Disqus Shortname' content="" />
+    <meta name="if:Block Search Engines" content="0"/>
+
+    {block:IfBlockSearchEngines}
+      <meta name="robots" content="noindex">
+    {/block:IfBlockSearchEngines}
+
     <title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
     {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
     <link rel="shortcut icon" href="{Favicon}">
