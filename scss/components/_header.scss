@@ -7,7 +7,7 @@
   border-radius: $radius;
 
   @media (min-width: $medium) {
-    margin: 2rem auto 1rem; 
+    margin: 2rem auto 1rem;
     padding: 2rem;
   }
 
@@ -26,6 +26,7 @@
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
+    border: 2px solid transparent;
     margin: 0rem auto 1rem;
     background-size: cover;
   }

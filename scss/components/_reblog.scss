@@ -1,0 +1,15 @@
+.reblog__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.reblog__item {
+  padding: 1rem 0;
+
+  &:first-child {
+    border-top: none;
+  }
+}
