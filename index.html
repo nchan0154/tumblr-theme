@@ -402,7 +402,7 @@
             {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
           {/block:Answerer}
           {block:NotReblog}
-            <div class="reblog-list">
+            <div class="reblog-list post__body">
               {Replies}
             </div>
           {/block:NotReblog}
@@ -417,7 +417,7 @@
               <div class="reblog__item {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
                 <div class="reblog__header">
                   {block:IsActive}
-                  <a class="{block:isNotOriginalEntry}sub-reblog{/block:isNotOriginalEntry}" href="{Permalink}" target="_blank">
+                  <a class="tumblr_blog {block:isNotOriginalEntry}sub-reblog{/block:isNotOriginalEntry}" href="{Permalink}" target="_blank">
                       <img class="reblog__icon" src="{PortraitURL-64}">
                   </a>
                   {/block:IsActive}
@@ -429,7 +429,7 @@
                   {/block:IsDeactivated}
 
                   {block:IsActive}
-                      <a target="_blank" href="{Permalink}">{Username}</a>
+                      <a class="tumblr_blog" target="_blank" href="{Permalink}">{Username}</a>
                   {/block:IsActive}
 
                   {block:IsDeactivated}
