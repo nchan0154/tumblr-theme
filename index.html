@@ -65,7 +65,7 @@
       </script>
     <![endif]-->
 
-    <link href="https://static.tumblr.com/bbx9bus/ehkp1pibr/style.css" rel="stylesheet" type="text/css">
+    <link href="https://static.tumblr.com/bbx9bus/Clfp3gg81/style.css" rel="stylesheet" type="text/css">
 
     <style>
       /* code specifically relating to the theme options */
@@ -148,13 +148,14 @@
         background-color: rgba({RGBcolor:Post Background Color}, {text:Content Background Opacity});
       }
 
-      .accent-link, .tumblr_blog, a, .asker {
+      .accent-link, .tumblr_blog, a, .asker, .answerer {
         color: {color:Post Accent Text Color};
       }
 
       .accent-link:hover, .accent-link:active, .accent-link:focus,
       .tumblr_blog:hover, .tumblr_blog:active, .tumblr_blog:focus,
-      .asker:hover, .asker:active, .asker:focus {
+      .asker:hover, .asker:active, .asker:focus,
+      .answerer:hover, .answerer:active, .answerer:focus {
         border-bottom: 2px solid {color:Decoration Color};
       }
 
@@ -396,6 +397,7 @@
         {block:Answer}
           <h2 class="post__title">{Asker} asked: {Question}</h2>
           {block:Answerer}
+            <img class="reblog__icon" src="{AnswererPortraitURL-16}">{Answerer}
             <section class="post__body">
               {Answer}
             </section>
@@ -416,17 +418,7 @@
               {/block:Answer}
               <div class="reblog__item {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
                 <div class="reblog__header">
-                  {block:IsActive}
-                  <a class="tumblr_blog {block:isNotOriginalEntry}sub-reblog{/block:isNotOriginalEntry}" href="{Permalink}" target="_blank">
-                      <img class="reblog__icon" src="{PortraitURL-64}">
-                  </a>
-                  {/block:IsActive}
-
-                  {block:IsDeactivated}
-                  <span class="inactive {block:isNotOriginalEntry} sub-reblog{/block:isNotOriginalEntry}">
-                      <img class="reblog__icon" src="{PortraitURL-64}">
-                  </span>
-                  {/block:IsDeactivated}
+                  <img class="reblog__icon" src="{PortraitURL-64}">
 
                   {block:IsActive}
                       <a class="tumblr_blog" target="_blank" href="{Permalink}">{Username}</a>
