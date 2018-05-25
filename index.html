@@ -411,30 +411,32 @@
         {/block:Answer}
 
         {block:RebloggedFrom}
-          <div class="reblogs post__body">
-            {block:Reblogs}
-              {block:Answer}
-                <div></div>
-              {/block:Answer}
-              <div class="reblog__item {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
-                <div class="reblog__header">
-                  <img class="reblog__icon" src="{PortraitURL-64}">
+          {block:NotChat}
+            <div class="reblogs post__body">
+              {block:Reblogs}
+                {block:Answer}
+                  <div></div>
+                {/block:Answer}
+                <div class="reblog__item {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+                  <div class="reblog__header">
+                    <img class="reblog__icon" src="{PortraitURL-64}">
 
-                  {block:IsActive}
-                      <a class="tumblr_blog" target="_blank" href="{Permalink}">{Username}</a>
-                  {/block:IsActive}
+                    {block:IsActive}
+                        <a class="tumblr_blog" target="_blank" href="{Permalink}">{Username}</a>
+                    {/block:IsActive}
 
-                  {block:IsDeactivated}
-                      <span class="inactive">{Username}</span>
-                  {/block:IsDeactivated}
+                    {block:IsDeactivated}
+                        <span class="inactive">{Username}</span>
+                    {/block:IsDeactivated}
 
+                  </div>
+                  <div class="reblog-content">
+                      {Body}
+                  </div>
                 </div>
-                <div class="reblog-content">
-                    {Body}
-                </div>
-              </div>
-            {/block:Reblogs}
-          </div>
+              {/block:Reblogs}
+            </div>
+          {/block:NotChat}
         {/block:RebloggedFrom}
 
         {block:Date}
