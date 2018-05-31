@@ -187,6 +187,10 @@
         background-color: rgba({RGBcolor:Decoration Color}, 0.2);
       }
 
+      .chat .reblogs {
+        display: none;
+      }
+
       .color-link:hover, .color-link:active, .color-link:focus,
       .notes a:hover, .notes a:active, .notes a:focus {
         color: {color:Decoration Color};
@@ -411,32 +415,30 @@
         {/block:Answer}
 
         {block:RebloggedFrom}
-          {block:NotChat}
-            <div class="reblogs post__body">
-              {block:Reblogs}
-                {block:Answer}
-                  <div></div>
-                {/block:Answer}
-                <div class="reblog__item {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
-                  <div class="reblog__header">
-                    <img class="reblog__icon" src="{PortraitURL-64}">
+          <div class="reblogs post__body">
+            {block:Reblogs}
+              {block:Answer}
+                <div></div>
+              {/block:Answer}
+              <div class="reblog__item {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+                <div class="reblog__header">
+                  <img class="reblog__icon" src="{PortraitURL-64}">
 
-                    {block:IsActive}
-                        <a class="tumblr_blog" target="_blank" href="{Permalink}">{Username}</a>
-                    {/block:IsActive}
+                  {block:IsActive}
+                      <a class="tumblr_blog" target="_blank" href="{Permalink}">{Username}</a>
+                  {/block:IsActive}
 
-                    {block:IsDeactivated}
-                        <span class="inactive">{Username}</span>
-                    {/block:IsDeactivated}
+                  {block:IsDeactivated}
+                      <span class="inactive">{Username}</span>
+                  {/block:IsDeactivated}
 
-                  </div>
-                  <div class="reblog-content">
-                      {Body}
-                  </div>
                 </div>
-              {/block:Reblogs}
-            </div>
-          {/block:NotChat}
+                <div class="reblog-content">
+                    {Body}
+                </div>
+              </div>
+            {/block:Reblogs}
+          </div>
         {/block:RebloggedFrom}
 
         {block:Date}
