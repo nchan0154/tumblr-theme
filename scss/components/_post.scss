@@ -1,6 +1,6 @@
 .post {
   &__title {
-    display: inline-block;
+    display: block;
     margin-top: 0;
     margin-bottom: 0.5rem;
   }
@@ -32,7 +32,9 @@
     margin: 0 auto;
   }
 
-  .tumblr_audio_player, .tumblr_video_container, iframe {
+  .tumblr_audio_player,
+  .tumblr_video_container,
+  iframe {
     min-width: 100%;
     max-width: 100%;
   }
