@@ -8,55 +8,57 @@
 
 -->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <!-- Custom Variables -->
-    <meta name="image:Logo" content=""/>
-    <meta name="text:Headline Google Font" content="Montserrat"/>
-    <meta name="text:Body Google Font" content="Open Sans"/>
-    <meta name="color:Background Gradient Top" content="#fafafa"/>
-    <meta name="color:Background Gradient Middle" content="#fafafa"/>
-    <meta name="color:Background Gradient Bottom" content="#eeeeee"/>
-    <meta name="image:Background Image" content=""/>
-    <meta name="if:Change Header To Fixed Sidebar" content="" />
-    <meta name="color:Header And Footer Text Color" content="##444444"/>
-    <meta name="if:Apply Header And Footer Background Color" content="1"/>
-    <meta name="color:Header And Footer Background Color" content="#fff"/>
-    <meta name="color:Post Text Color" content="#444444"/>
-    <meta name="color:Post Accent Text Color" content="#5f5f73"/>
-    <meta name="color:Post Background Color" content="#ffffff"/>
-    <meta name="text:Content Background Opacity" content="1"/>
-    <meta name="color:Decoration Color" content="#D88A8A"/>
-    <meta name="if:Enable Search" content="1"/>
-    <meta name="if:Set Search To Search Tags" content="0"/>
-    <meta name="if:Enable Social Media" content="0"/>
-    <meta name="text:Facebook URL" content=""/>
-    <meta name="text:Twitter URL" content=""/>
-    <meta name="text:Instagram URL" content=""/>
-    <meta name="text:Youtube URL" content=""/>
-    <meta name="if:Enable Footer" content="1"/>
-    <meta name="text:Footer Text" content="Progressive Tumblr Theme by Nic Chan"/>
-    <meta name="text:Google Analytics ID" content=""/>
-    <meta name='text:Disqus Shortname' content="" />
-    <meta name="if:Block Search Engines" content="0"/>
 
-    {block:IfBlockSearchEngines}
-      <meta name="robots" content="noindex">
-    {/block:IfBlockSearchEngines}
+<head>
+  <meta charset="UTF-8">
+  <!-- Custom Variables -->
+  <meta name="image:Logo" content="" />
+  <meta name="text:Headline Google Font" content="Montserrat" />
+  <meta name="text:Body Google Font" content="Open Sans" />
+  <meta name="color:Background Gradient Top" content="#fafafa" />
+  <meta name="color:Background Gradient Middle" content="#fafafa" />
+  <meta name="color:Background Gradient Bottom" content="#eeeeee" />
+  <meta name="image:Background Image" content="" />
+  <meta name="if:Change Header To Fixed Sidebar" content="" />
+  <meta name="color:Header And Footer Text Color" content="##444444" />
+  <meta name="if:Apply Header And Footer Background Color" content="1" />
+  <meta name="color:Header And Footer Background Color" content="#fff" />
+  <meta name="color:Post Text Color" content="#444444" />
+  <meta name="color:Post Accent Text Color" content="#5f5f73" />
+  <meta name="color:Post Background Color" content="#ffffff" />
+  <meta name="text:Content Background Opacity" content="1" />
+  <meta name="color:Decoration Color" content="#D88A8A" />
+  <meta name="if:Enable Search" content="1" />
+  <meta name="if:Set Search To Search Tags" content="0" />
+  <meta name="if:Enable Social Media" content="0" />
+  <meta name="text:Facebook URL" content="" />
+  <meta name="text:Twitter URL" content="" />
+  <meta name="text:Instagram URL" content="" />
+  <meta name="text:Youtube URL" content="" />
+  <meta name="if:Enable Footer" content="1" />
+  <meta name="text:Footer Text" content="Progressive Tumblr Theme by Nic Chan" />
+  <meta name="text:Google Analytics ID" content="" />
+  <meta name='text:Disqus Shortname' content="" />
+  <meta name="if:Block Search Engines" content="0" />
 
-    <title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
-    {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
-    <link rel="shortcut icon" href="{Favicon}">
-    <link rel="apple-touch-icon" href="{PortraitURL-128}">
-    <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    {block:IfHeadlineGoogleFont}
-      <link href='https://fonts.googleapis.com/css?family={text:Headline Google Font}:400' rel='stylesheet' type='text/css'>
-    {/block:IfHeadlineGoogleFont}
-    {block:IfBodyGoogleFont}
-      <link href='https://fonts.googleapis.com/css?family={text:Body Google Font}:400,700' rel='stylesheet' type='text/css'>
-    {/block:IfBodyGoogleFont}
-    <meta name=viewport content='width=device-width, initial-scale=1'>
-    <!--[if lt IE 9]>
+  {block:IfBlockSearchEngines}
+  <meta name="robots" content="noindex">
+  {/block:IfBlockSearchEngines}
+
+  <title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
+  {block:Description}
+  <meta name="description" content="{MetaDescription}">{/block:Description}
+  <link rel="shortcut icon" href="{Favicon}">
+  <link rel="apple-touch-icon" href="{PortraitURL-128}">
+  <link rel="alternate" type="application/rss+xml" href="{RSS}">
+  {block:IfHeadlineGoogleFont}
+  <link href='https://fonts.googleapis.com/css?family={text:Headline Google Font}:400' rel='stylesheet' type='text/css'>
+  {/block:IfHeadlineGoogleFont}
+  {block:IfBodyGoogleFont}
+  <link href='https://fonts.googleapis.com/css?family={text:Body Google Font}:400,700' rel='stylesheet' type='text/css'>
+  {/block:IfBodyGoogleFont}
+  <meta name=viewport content='width=device-width, initial-scale=1'>
+  <!--[if lt IE 9]>
       <script>
         /* @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
         */
@@ -65,10 +67,10 @@
       </script>
     <![endif]-->
 
-    <link href="https://static.tumblr.com/bbx9bus/ew6pdysc4/style.css" rel="stylesheet" type="text/css">
+  <link href="https://static.tumblr.com/bbx9bus/uh9pgoc3i/style.css" rel="stylesheet" type="text/css">
 
-    <style>
-      /* code specifically relating to the theme options */
+  <style>
+    /* code specifically relating to the theme options */
       body {
         background: -webkit-linear-gradient(top, {color:Background Gradient Top}, {color:Background Gradient Middle}, {color:Background Gradient Bottom});
         background: linear-gradient(to bottom, {color:Background Gradient Top}, {color:Background Gradient Middle}, {color:Background Gradient Bottom});
@@ -200,40 +202,43 @@
 
     </style>
 
-    {block:IfGoogleAnalyticsID}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  {block:IfGoogleAnalyticsID}
+  <script>
+    (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', '{text:Google Analytics ID}', 'auto');
-        ga('send', 'pageview');
-      </script>
-    {/block:IfGoogleAnalyticsID}
+    ga('create', '{text:Google Analytics ID}', 'auto');
+    ga('send', 'pageview');
+  </script>
+  {/block:IfGoogleAnalyticsID}
 
-  </head>
+</head>
+
 <body>
   <a class="skip-to" href="#main">Skip to Main Content</a>
 
   <header class="header {block:IfChangeHeaderToFixedSidebar}header--fixed{/block:IfChangeHeaderToFixedSidebar}">
 
     {block:IfLogoImage}
-      <a class="header__logo-link" href="/">
-        <figure class="header__logo" style="background-image: url('{image:Logo}')"></figure>
-      </a>
+    <a class="header__logo-link" href="/">
+      <figure class="header__logo" style="background-image: url('{image:Logo}')"></figure>
+    </a>
     {/block:IfLogoImage}
 
     <h1><a href="/" class="header__title">{Title}</a></h1>
 
     {block:Description}
-      <p class="header__description">{Description}</p>
+    <p class="header__description">{Description}</p>
     {/block:Description}
 
     {block:IfEnableSearch}
     <form id="search-form" class="search" action="/search" method="get">
       <label><span class="sr-only">Search</span>
-        <input  class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
+        <input class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}" />
       </label>
       <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
     </form>
@@ -242,15 +247,15 @@
     <nav>
       <ul class="nav__list">
         {block:AskEnabled}
-          <li class="nav__list-item"><a class="nav__link" href="/ask" role="menuitem">{AskLabel}</a>
-        {/block:AskEnabled}
-        {block:SubmissionsEnabled}
-          <li class="nav__list-item"><a class="nav__link" href="/submit" role="menuitem">{SubmitLabel}</a>
-        {/block:SubmissionsEnabled}
-        {block:HasPages}
+        <li class="nav__list-item"><a class="nav__link" href="/ask" role="menuitem">{AskLabel}</a>
+          {/block:AskEnabled}
+          {block:SubmissionsEnabled}
+        <li class="nav__list-item"><a class="nav__link" href="/submit" role="menuitem">{SubmitLabel}</a>
+          {/block:SubmissionsEnabled}
+          {block:HasPages}
           {block:Pages}
-            <li class="nav__list-item"><a class="nav__link" href="{URL}" role="menuitem">{Label}</a></li>
-          {/block:Pages}
+        <li class="nav__list-item"><a class="nav__link" href="{URL}" role="menuitem">{Label}</a></li>
+        {/block:Pages}
         {/block:HasPages}
       </ul>
     </nav>
@@ -258,11 +263,11 @@
     {block:IfChangeHeaderToFixedSidebar}
     <div class="pagination">
       {block:PreviousPage}
-        <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
+      <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
       {/block:PreviousPage}
       <span class="pagination__numbers">{CurrentPage}/{TotalPages}</span>
       {block:NextPage}
-        <a href="{NextPage}" id="next" class="pagination__next color-link">Next &rarr;</a>
+      <a href="{NextPage}" id="next" class="pagination__next color-link">Next &rarr;</a>
       {/block:NextPage}
     </div>
     {/block:IfChangeHeaderToFixedSidebar}
@@ -271,308 +276,311 @@
 
   <main id="main" class="content__wrapper">
     {block:NoSearchResults}
-      <section class="content text-center">
-        <h2 class="post__title">Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
-        <br>
-        <form class="search" action="/search" method="get">
-          <label><span class="sr-only">Search</span>
-            <input  class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}"/>
-          </label>
-          <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
-        </form>
-      </section>
+    <section class="content text-center">
+      <h2 class="post__title">Sorry, nothing found for &ldquo;{SearchQuery}&rdquo;.</h2>
+      <br>
+      <form class="search" action="/search" method="get">
+        <label><span class="sr-only">Search</span>
+          <input class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}" />
+        </label>
+        <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
+      </form>
+    </section>
     {/block:NoSearchResults}
 
     {block:TagPage}
-      <section class="content">
-        <h2 class="post__title">#{Tag}</h2>
-      </section>
+    <section class="content">
+      <h2 class="post__title">#{Tag}</h2>
+    </section>
     {/block:TagPage}
 
     {block:DayPage}
-      <section class="content">
-        <h2 class="post__title">{Month} {DayOfMonth}, {Year}</h2>
-      </section>
+    <section class="content">
+      <h2 class="post__title">{Month} {DayOfMonth}, {Year}</h2>
+    </section>
     {/block:DayPage}
 
     {block:Posts}
-      <article class="content post {PostType} {TagsAsClasses}">
+    <article class="content post {PostType} {TagsAsClasses}">
 
-        {block:Text}
-          {block:Title}
-          <h2 class="post__title"><a href="{Permalink}" class="accent-link">{Title}</a></h2>
-          {/block:Title}
-          {block:NotReblog}
-            <section class="post__body">
-              {Body}
-            </section>
-            {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-          {/block:NotReblog}
-        {/block:Text}
+      {block:Text}
+      {block:Title}
+      <h2 class="post__title"><a href="{Permalink}" class="accent-link">{Title}</a></h2>
+      {/block:Title}
+      {block:NotReblog}
+      <section class="post__body">
+        {Body}
+      </section>
+      {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+      {/block:NotReblog}
+      {/block:Text}
 
-        {block:Photo}
-          {LinkOpenTag}
-            <img class="post__photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
-          {LinkCloseTag}
-          {block:Caption}
-            {block:NotReblog}
-              <section class="post__body">
-                {Caption}
-              </section>
-              {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-            {/block:NotReblog}
-          {/block:Caption}
-        {/block:Photo}
+      {block:Photo}
+      {LinkOpenTag}
+      <img class="post__photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+      {LinkCloseTag}
+      {block:Caption}
+      {block:NotReblog}
+      <section class="post__body">
+        {Caption}
+      </section>
+      {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+      {/block:NotReblog}
+      {/block:Caption}
+      {/block:Photo}
 
-        {block:Photoset}
-          {Photoset}
-          {block:Caption}
-            {block:NotReblog}
-              <section class="post__body">
-                {Caption}
-              </section>
-              {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-            {/block:NotReblog}
-          {/block:Caption}
-        {/block:Photoset}
+      {block:Photoset}
+      {Photoset}
+      {block:Caption}
+      {block:NotReblog}
+      <section class="post__body">
+        {Caption}
+      </section>
+      {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+      {/block:NotReblog}
+      {/block:Caption}
+      {/block:Photoset}
 
-        {block:Quote}
-          <blockquote class="quote-post post__body">
-            <div class="post__body quote-post__text">{Quote}</div>
-            {block:Source}
-              <footer class="quote-post__source">&ndash; {Source}</footer>
-            {/block:Source}
-          </blockquote>
-          {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-        {/block:Quote}
+      {block:Quote}
+      <blockquote class="quote-post post__body">
+        <div class="post__body quote-post__text">{Quote}</div>
+        {block:Source}
+        <footer class="quote-post__source">&ndash; {Source}</footer>
+        {/block:Source}
+      </blockquote>
+      {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+      {/block:Quote}
 
-        {block:Link}
-          <h2 class="post__title"><a href="{URL}"{Target} class="accent-link">{Name} &rarr;</a></h2>
-          {block:NotReblog}
-            {block:Description}
-              <section class="post__body">
-                {Description}
-              </section>
-              {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-            {/block:Description}
-          {/block:NotReblog}
-        {/block:Link}
+      {block:Link}
+      <h2 class="post__title"><a href="{URL}" {Target} class="accent-link">{Name} &rarr;</a></h2>
+      {block:NotReblog}
+      {block:Description}
+      <section class="post__body">
+        {Description}
+      </section>
+      {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+      {/block:Description}
+      {/block:NotReblog}
+      {/block:Link}
 
-        {block:Chat}
-          {block:Title}
-            <h2 class="post__title">{Title}</h2>
-          {/block:Title}
-          <ul class="chat-post post__body">
-            {block:Lines}
-              <li class="{Alt} chat-post__line">
-                {block:Label}
-                    <strong class="chat-post__label">{Label}</strong>
-                {/block:Label}
-                {Line}
-              </li>
-            {/block:Lines}
-          </ul>
-        {/block:Chat}
+      {block:Chat}
+      {block:Title}
+      <h2 class="post__title">{Title}</h2>
+      {/block:Title}
+      <ul class="chat-post post__body">
+        {block:Lines}
+        <li class="{Alt} chat-post__line">
+          {block:Label}
+          <strong class="chat-post__label">{Label}</strong>
+          {/block:Label}
+          {Line}
+        </li>
+        {/block:Lines}
+      </ul>
+      {/block:Chat}
 
-        {block:Audio}
-          {AudioEmbed-640}
-          {block:Caption}
-            {block:NotReblog}
-              <section class="post__body">
-                {Caption}
-              </section>
-              {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-            {/block:NotReblog}
-          {/block:Caption}
-        {/block:Audio}
+      {block:Audio}
+      {AudioEmbed-640}
+      {block:Caption}
+      {block:NotReblog}
+      <section class="post__body">
+        {Caption}
+      </section>
+      {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+      {/block:NotReblog}
+      {/block:Caption}
+      {/block:Audio}
 
-        {block:Video}
-          {Video-700}
-          {block:NotReblog}
-            {block:Caption}
-              <section class="post__body">
-                {Caption}
-              </section>
-            {/block:Caption}
-            {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-          {/block:NotReblog}
-        {/block:Video}
+      {block:Video}
+      {Video-700}
+      {block:NotReblog}
+      {block:Caption}
+      <section class="post__body">
+        {Caption}
+      </section>
+      {/block:Caption}
+      {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+      {/block:NotReblog}
+      {/block:Video}
 
+      {block:Answer}
+      <h2 class="post__title">{Asker} asked: {Question}</h2>
+      {block:Answerer}
+      <img class="reblog__icon" src="{AnswererPortraitURL-16}">{Answerer}
+      <section class="post__body">
+        {Answer}
+      </section>
+      {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
+      {/block:Answerer}
+      {block:NotReblog}
+      <div class="reblog-list post__body">
+        {Replies}
+      </div>
+      {/block:NotReblog}
+      {/block:Answer}
+
+      {block:RebloggedFrom}
+      <div class="reblogs post__body">
+        {block:Reblogs}
         {block:Answer}
-          <h2 class="post__title">{Asker} asked: {Question}</h2>
-          {block:Answerer}
-            <img class="reblog__icon" src="{AnswererPortraitURL-16}">{Answerer}
-            <section class="post__body">
-              {Answer}
-            </section>
-            {block:More}<a href="{Permalink}" class="accent-link">Read More &rarr;</a>{/block:More}
-          {/block:Answerer}
-          {block:NotReblog}
-            <div class="reblog-list post__body">
-              {Replies}
-            </div>
-          {/block:NotReblog}
+        <div></div>
         {/block:Answer}
+        <div class="reblog__item {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+          <div class="reblog__header">
+            <img class="reblog__icon" src="{PortraitURL-64}">
 
-        {block:RebloggedFrom}
-          <div class="reblogs post__body">
-            {block:Reblogs}
-              {block:Answer}
-                <div></div>
-              {/block:Answer}
-              <div class="reblog__item {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
-                <div class="reblog__header">
-                  <img class="reblog__icon" src="{PortraitURL-64}">
+            {block:IsActive}
+            <a class="tumblr_blog" target="_blank" href="{Permalink}">{Username}</a>
+            {/block:IsActive}
 
-                  {block:IsActive}
-                      <a class="tumblr_blog" target="_blank" href="{Permalink}">{Username}</a>
-                  {/block:IsActive}
+            {block:IsDeactivated}
+            <span class="inactive">{Username}</span>
+            {/block:IsDeactivated}
 
-                  {block:IsDeactivated}
-                      <span class="inactive">{Username}</span>
-                  {/block:IsDeactivated}
-
-                </div>
-                <div class="reblog-content">
-                    {Body}
-                </div>
-              </div>
-            {/block:Reblogs}
           </div>
-        {/block:RebloggedFrom}
+          <div class="reblog-content">
+            {Body}
+          </div>
+        </div>
+        {/block:Reblogs}
+      </div>
+      {/block:RebloggedFrom}
 
-        {block:Date}
-          <footer class="post__footer">
-            <a class="post__timestamp accent-link" href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a>
+      {block:Date}
+      <footer class="post__footer">
+        <a class="post__timestamp accent-link" href="{Permalink}" title="{DayOfWeek}, {DayOfMonth} {Month} {Year}, {24Hour}:{Minutes}:{Seconds}">{TimeAgo}</a>
 
-            {block:NoteCount}
-              <a class="post__notes accent-link" href="{Permalink}">{NoteCountWithLabel}</a>
-            {/block:NoteCount}
+        {block:NoteCount}
+        <a class="post__notes accent-link" href="{Permalink}">{NoteCountWithLabel}</a>
+        {/block:NoteCount}
 
-            {block:Submission}
-              <div class="post__submission">
-                Submitted by <a href="{SubmitterURL}" class="color-link">{Submitter}</a>
-              </div>
-            {/block:Submission}
+        {block:Submission}
+        <div class="post__submission">
+          Submitted by <a href="{SubmitterURL}" class="color-link">{Submitter}</a>
+        </div>
+        {/block:Submission}
 
-            {block:PermalinkPage}
-              <div class="post__source">
-                {block:RebloggedFrom}
-                  (reblogged from <a class="accent-link" href="{ReblogParentURL}">{ReblogParentName}</a>)
-                {/block:RebloggedFrom}
-                {block:ContentSource}
-                  via <a class="accent-link" href="{SourceURL}">{SourceTitle}</a>
-                {/block:ContentSource}
-              </div>
-            {/block:PermalinkPage}
+        {block:PermalinkPage}
+        <div class="post__source">
+          {block:RebloggedFrom}
+          (reblogged from <a class="accent-link" href="{ReblogParentURL}">{ReblogParentName}</a>)
+          {/block:RebloggedFrom}
+          {block:ContentSource}
+          via <a class="accent-link" href="{SourceURL}">{SourceTitle}</a>
+          {/block:ContentSource}
+        </div>
+        {/block:PermalinkPage}
 
-            {block:HasTags}
-              <ul class="post__tags">
-                {block:Tags}
-                  <li>
-                    <a class="post__tag-link color-link" href="{TagURL}">#{Tag}</a>
-                  </li>
-                {/block:Tags}
-              </ul>
-            {/block:HasTags}
-          </footer>
-        {/block:Date}
-      </article>
+        {block:HasTags}
+        <ul class="post__tags">
+          {block:Tags}
+          <li>
+            <a class="post__tag-link color-link" href="{TagURL}">#{Tag}</a>
+          </li>
+          {/block:Tags}
+        </ul>
+        {/block:HasTags}
+      </footer>
+      {/block:Date}
+    </article>
 
-      {block:PostNotes}
-        <aside class="content post-notes">
-          {PostNotes-64}
-        </aside>
-      {/block:PostNotes}
+    {block:PostNotes}
+    <aside class="content post-notes">
+      {PostNotes-64}
+    </aside>
+    {/block:PostNotes}
 
-      {block:PermalinkPage}
-        {block:IfDisqusShortname}
-          <section class="content">
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-              var disqus_shortname = '{text:Disqus Shortname}';
-              var disqus_url = '{Permalink}';
+    {block:PermalinkPage}
+    {block:IfDisqusShortname}
+    <section class="content">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = '{text:Disqus Shortname}';
+        var disqus_url = '{Permalink}';
 
-              (function() {
-                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-          </section>
-        {/block:IfDisqusShortname}
-      {/block:PermalinkPage}
+        (function () {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+          Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+    {/block:IfDisqusShortname}
+    {/block:PermalinkPage}
 
     {/block:Posts}
 
     {block:Pagination}
-      <div class="content pagination">
-        {block:PreviousPage}
-          <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
-        {/block:PreviousPage}
-        <span class="pagination__numbers">{CurrentPage}/{TotalPages}</span>
-        {block:NextPage}
-          <a href="{NextPage}" id="next" class="pagination__next color-link">Next &rarr;</a>
-        {/block:NextPage}
-      </div>
+    <div class="content pagination">
+      {block:PreviousPage}
+      <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
+      {/block:PreviousPage}
+      <span class="pagination__numbers">{CurrentPage}/{TotalPages}</span>
+      {block:NextPage}
+      <a href="{NextPage}" id="next" class="pagination__next color-link">Next &rarr;</a>
+      {/block:NextPage}
+    </div>
     {/block:Pagination}
 
     {block:DayPagination}
-      <div class="content pagination">
-        {block:PreviousDayPage}
-          <a href="{PreviousDayPage}" id="previous" class="pagination__previous color-link">&larr; {ShortMonth} {DayOfMonth}</a>
-        {/block:PreviousDayPage}
-        {block:NextDayPage}
-          <a href="{NextDayPage}" id="next" class="pagination__next color-link">{ShortMonth} {DayOfMonth} &rarr;</a>
-        {/block:NextDayPage}
-      </div>
+    <div class="content pagination">
+      {block:PreviousDayPage}
+      <a href="{PreviousDayPage}" id="previous" class="pagination__previous color-link">&larr; {ShortMonth}
+        {DayOfMonth}</a>
+      {/block:PreviousDayPage}
+      {block:NextDayPage}
+      <a href="{NextDayPage}" id="next" class="pagination__next color-link">{ShortMonth} {DayOfMonth} &rarr;</a>
+      {/block:NextDayPage}
+    </div>
     {/block:DayPagination}
 
   </main>
-    {block:IfEnableFooter}
-      <footer class="footer">
-        {block:IfEnableSocialMedia}
-        <ul class="social">
-          {block:IfFacebookURL}
-            <li>
-              <a href="{text:Facebook URL}" class="color-link"><i class="fa fa-facebook-square" aria-hidden="true" title="Facebook Link"></i></a>
-            </li>
-          {/block:IfFacebookURL}
-          {block:IfTwitterURL}
-            <li>
-              <a href="{text:Twitter URL}" class="color-link"><i class="fa fa-twitter" aria-hidden="true" title="Twitter Link"></i></a>
-            </li>
-          {/block:IfTwitterURL}
-          {block:IfYoutubeURL}
-            <li>
-              <a href="{text:Youtube URL}" class="color-link"><i class="fa fa-youtube-play" aria-hidden="true" title="Youtube Link"></i></a>
-            </li>
-          {/block:IfYoutubeURL}
-          {block:IfInstagramURL}
-            <li>
-              <a href="{text:Instagram URL}" class="color-link"><i class="fa fa-instagram" aria-hidden="true" title="Instagram Link"></i></a>
-            </li>
-          {/block:IfInstagramURL}
-        </ul>
-        {/block:IfEnableSocialMedia}
-        {block:IfFooterText}
-        <p class="footer__text">
-          {text:Footer Text}
-        </p>
-        {/block:IfFooterText}
-      </footer>
-    {/block:IfEnableFooter}
-    <script src="//static.tumblr.com/bbx9bus/fClo7vbgp/app.js"></script>
-    {block:IfSetSearchToSearchTags}
-      <script>
-        var searchForm = document.getElementById('search-form');
-        searchForm.onsubmit = function(event){
-          event.preventDefault();
-          window.location = "/tagged/" + searchForm.querySelector('.search__input').value;
-        }
-      </script>
-    {/block:IfSetSearchToSearchTags}
-  </body>
+  {block:IfEnableFooter}
+  <footer class="footer">
+    {block:IfEnableSocialMedia}
+    <ul class="social">
+      {block:IfFacebookURL}
+      <li>
+        <a href="{text:Facebook URL}" class="color-link"><i class="fa fa-facebook-square" aria-hidden="true" title="Facebook Link"></i></a>
+      </li>
+      {/block:IfFacebookURL}
+      {block:IfTwitterURL}
+      <li>
+        <a href="{text:Twitter URL}" class="color-link"><i class="fa fa-twitter" aria-hidden="true" title="Twitter Link"></i></a>
+      </li>
+      {/block:IfTwitterURL}
+      {block:IfYoutubeURL}
+      <li>
+        <a href="{text:Youtube URL}" class="color-link"><i class="fa fa-youtube-play" aria-hidden="true" title="Youtube Link"></i></a>
+      </li>
+      {/block:IfYoutubeURL}
+      {block:IfInstagramURL}
+      <li>
+        <a href="{text:Instagram URL}" class="color-link"><i class="fa fa-instagram" aria-hidden="true" title="Instagram Link"></i></a>
+      </li>
+      {/block:IfInstagramURL}
+    </ul>
+    {/block:IfEnableSocialMedia}
+    {block:IfFooterText}
+    <p class="footer__text">
+      {text:Footer Text}
+    </p>
+    {/block:IfFooterText}
+  </footer>
+  {/block:IfEnableFooter}
+  <script src="//static.tumblr.com/bbx9bus/fClo7vbgp/app.js"></script>
+  {block:IfSetSearchToSearchTags}
+  <script>
+    var searchForm = document.getElementById('search-form');
+    searchForm.onsubmit = function (event) {
+      event.preventDefault();
+      window.location = "/tagged/" + searchForm.querySelector('.search__input').value;
+    }
+  </script>
+  {/block:IfSetSearchToSearchTags}
+</body>
+
 </html>
