@@ -58,4 +58,12 @@
       padding: 0 0.25rem;
     }
   }
+
+  &__actions {
+    margin-top: 0.5rem;
+    & > * {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+  }
 }

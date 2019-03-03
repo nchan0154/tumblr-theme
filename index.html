@@ -31,6 +31,7 @@
   <meta name="if:Enable Search" content="1" />
   <meta name="if:Set Search To Search Tags" content="0" />
   <meta name="if:Enable Social Media" content="0" />
+  <meta name="if:Show Post Actions" content="0" />
   <meta name="text:Facebook URL" content="" />
   <meta name="text:Twitter URL" content="" />
   <meta name="text:Instagram URL" content="" />
@@ -67,7 +68,7 @@
       </script>
     <![endif]-->
 
-  <link href="https://static.tumblr.com/bbx9bus/uh9pgoc3i/style.css" rel="stylesheet" type="text/css">
+  <link href="https://static.tumblr.com/bbx9bus/wJkpnse5g/style.css" rel="stylesheet" type="text/css">
 
   <style>
     /* code specifically relating to the theme options */
@@ -198,6 +199,12 @@
         color: {color:Decoration Color};
       }
 
+      {block:IfNotShowPostActions}
+        .post__actions {
+          display: none;
+        }
+      {/block:IfNotShowPostActions}
+
       {CustomCSS}
 
     </style>
@@ -224,8 +231,8 @@
   <header class="header {block:IfChangeHeaderToFixedSidebar}header--fixed{/block:IfChangeHeaderToFixedSidebar}">
 
     {block:IfLogoImage}
-    <a class="header__logo-link" href="/">
-      <figure class="header__logo" style="background-image: url('{image:Logo}')"></figure>
+    <a class="header__logo-link" href="/" role="presentation">
+      <div class="header__logo" style="background-image: url('{image:Logo}')"></div>
     </a>
     {/block:IfLogoImage}
 
@@ -240,7 +247,10 @@
       <label><span class="sr-only">Search</span>
         <input class="search__input" type="text" name="q" placeholder="Search..." value="{SearchQuery}" />
       </label>
-      <input class="search__button fa" type="submit" value="&#xf002;" alt="Submit Search">
+      <button class="search__button fa">
+        &#xf002;
+        <span class="sr-only">Submit Search Query</span>
+      </button>
     </form>
     {/block:IfEnableSearch}
 
@@ -480,6 +490,14 @@
           {/block:Tags}
         </ul>
         {/block:HasTags}
+
+
+        <div class="post__actions">
+          {LikeButton color="grey"}
+          <div>
+            {ReblogButton color="grey"}
+          </div>
+        </div>
       </footer>
       {/block:Date}
     </article>
