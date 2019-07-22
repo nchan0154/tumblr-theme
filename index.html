@@ -233,6 +233,7 @@
     {block:IfLogoImage}
     <a class="header__logo-link" href="/" role="presentation">
       <div class="header__logo" style="background-image: url('{image:Logo}')"></div>
+      <span class="sr-only">{Title}</span>
     </a>
     {/block:IfLogoImage}
 
@@ -249,37 +250,38 @@
       </label>
       <button class="search__button fa">
         &#xf002;
-        <span class="sr-only">Submit Search Query</span>
+        <span class="sr-only">Submit Search</span>
       </button>
     </form>
     {/block:IfEnableSearch}
 
-    <nav>
+    <nav aria-label="Primary">
       <ul class="nav__list">
         {block:AskEnabled}
-        <li class="nav__list-item"><a class="nav__link" href="/ask" role="menuitem">{AskLabel}</a>
+        <li class="nav__list-item"><a class="nav__link" href="/ask">{AskLabel}</a>
           {/block:AskEnabled}
           {block:SubmissionsEnabled}
-        <li class="nav__list-item"><a class="nav__link" href="/submit" role="menuitem">{SubmitLabel}</a>
+        <li class="nav__list-item"><a class="nav__link" href="/submit">{SubmitLabel}</a>
           {/block:SubmissionsEnabled}
           {block:HasPages}
           {block:Pages}
-        <li class="nav__list-item"><a class="nav__link" href="{URL}" role="menuitem">{Label}</a></li>
+        <li class="nav__list-item"><a class="nav__link" href="{URL}">{Label}</a></li>
         {/block:Pages}
         {/block:HasPages}
       </ul>
     </nav>
 
     {block:IfChangeHeaderToFixedSidebar}
-    <div class="pagination">
+    <nav class="pagination" aria-label="Pagination">
       {block:PreviousPage}
       <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
       {/block:PreviousPage}
-      <span class="pagination__numbers">{CurrentPage}/{TotalPages}</span>
+      <span class="pagination__numbers" aria-hidden="true">{CurrentPage}/{TotalPages}</span>
+      <span class="sr-only">{CurrentPage} out of {TotalPages} pages</span>
       {block:NextPage}
       <a href="{NextPage}" id="next" class="pagination__next color-link">Next &rarr;</a>
       {/block:NextPage}
-    </div>
+    </nav>
     {/block:IfChangeHeaderToFixedSidebar}
 
   </header>
@@ -532,19 +534,20 @@
     {/block:Posts}
 
     {block:Pagination}
-    <div class="content pagination">
+    <nav class="content pagination" aria-label="Pagination">
       {block:PreviousPage}
       <a href="{PreviousPage}" id="previous" class="pagination__previous color-link">&larr; Previous</a>
       {/block:PreviousPage}
-      <span class="pagination__numbers">{CurrentPage}/{TotalPages}</span>
+      <span class="pagination__numbers" aria-hidden="true">{CurrentPage}/{TotalPages}</span>
+      <span class="sr-only">{CurrentPage} out of {TotalPages} pages</span>
       {block:NextPage}
       <a href="{NextPage}" id="next" class="pagination__next color-link">Next &rarr;</a>
       {/block:NextPage}
-    </div>
+    </nav>
     {/block:Pagination}
 
     {block:DayPagination}
-    <div class="content pagination">
+    <nav class="content pagination" aria-label="Pagination">
       {block:PreviousDayPage}
       <a href="{PreviousDayPage}" id="previous" class="pagination__previous color-link">&larr; {ShortMonth}
         {DayOfMonth}</a>
@@ -552,7 +555,7 @@
       {block:NextDayPage}
       <a href="{NextDayPage}" id="next" class="pagination__next color-link">{ShortMonth} {DayOfMonth} &rarr;</a>
       {/block:NextDayPage}
-    </div>
+    </nav>
     {/block:DayPagination}
 
   </main>
@@ -562,22 +565,22 @@
     <ul class="social">
       {block:IfFacebookURL}
       <li>
-        <a href="{text:Facebook URL}" class="color-link"><i class="fa fa-facebook-square" aria-hidden="true" title="Facebook Link"></i></a>
+        <a href="{text:Facebook URL}" class="color-link"><span class="sr-only">Facebook</span><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
       </li>
       {/block:IfFacebookURL}
       {block:IfTwitterURL}
       <li>
-        <a href="{text:Twitter URL}" class="color-link"><i class="fa fa-twitter" aria-hidden="true" title="Twitter Link"></i></a>
+        <a href="{text:Twitter URL}" class="color-link"><span class="sr-only">Twitter</span><i class="fa fa-twitter" aria-hidden="true"></i></a>
       </li>
       {/block:IfTwitterURL}
       {block:IfYoutubeURL}
       <li>
-        <a href="{text:Youtube URL}" class="color-link"><i class="fa fa-youtube-play" aria-hidden="true" title="Youtube Link"></i></a>
+        <a href="{text:Youtube URL}" class="color-link"><span class="sr-only">Youtube</span><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
       </li>
       {/block:IfYoutubeURL}
       {block:IfInstagramURL}
       <li>
-        <a href="{text:Instagram URL}" class="color-link"><i class="fa fa-instagram" aria-hidden="true" title="Instagram Link"></i></a>
+        <a href="{text:Instagram URL}" class="color-link"><span class="sr-only">Instagram</span><i class="fa fa-instagram" aria-hidden="true"></i></a>
       </li>
       {/block:IfInstagramURL}
     </ul>
